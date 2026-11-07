@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07 17:28",
+ "generated": "2026-11-07 17:31",
  "brand": {
   "name": "Honey",
   "name_caps": "HONEY",
@@ -68,7 +68,7 @@
    "sort": 1,
    "description": "ألواح وقطع شوكولا مرّة وحلوة، سادة ومحشوّة.",
    "count": 20,
-   "cover": "CHOC-011",
+   "cover": "CHOC-012",
    "catalog": "honey-chocolate"
   },
   {
@@ -78,7 +78,7 @@
    "sort": 2,
    "description": "معمول وبرازق وبيتيفور وكعك، حلو ومالح.",
    "count": 8,
-   "cover": "PAST-002",
+   "cover": "PAST-004",
    "catalog": "honey-pastries"
   },
   {
@@ -88,7 +88,7 @@
    "sort": 3,
    "description": "أصناف الحلو العربي بالفستق والكاجو، وعلب مشكّلة.",
    "count": 15,
-   "cover": "ARAB-001",
+   "cover": "ARAB-012",
    "catalog": "honey-arabic-sweets"
   }
  ],
