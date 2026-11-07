@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07 20:37",
+ "generated": "2026-11-07 20:39",
  "brand": {
   "name": "Honey",
   "name_caps": "HONEY",
@@ -1397,13 +1397,13 @@
     "pastries",
     "arabic-sweets"
    ],
-   "pages": 28,
-   "products": 43,
-   "mb": 4.97,
+   "pages": 33,
+   "products": 53,
+   "mb": 5.84,
    "href": "catalogs/Honey-Catalog.pdf",
    "file_name": "Honey-Catalog.pdf",
    "cover": "catalogs/honey-catalog-cover.jpg",
-   "built": "2026-11-07 17:33"
+   "built": "2026-11-07 20:38"
   },
   {
    "id": "honey-arabic-sweets",
@@ -1415,11 +1415,11 @@
    ],
    "pages": 12,
    "products": 15,
-   "mb": 2.54,
+   "mb": 2.53,
    "href": "catalogs/Honey-Arabic-Sweets.pdf",
    "file_name": "Honey-Arabic-Sweets.pdf",
    "cover": "catalogs/honey-arabic-sweets-cover.jpg",
-   "built": "2026-11-07 17:32"
+   "built": "2026-11-07 20:38"
   },
   {
    "id": "honey-chocolate",
@@ -1429,13 +1429,13 @@
    "categories": [
     "chocolate"
    ],
-   "pages": 14,
-   "products": 20,
-   "mb": 1.67,
+   "pages": 19,
+   "products": 30,
+   "mb": 2.54,
    "href": "catalogs/Honey-Chocolate.pdf",
    "file_name": "Honey-Chocolate.pdf",
    "cover": "catalogs/honey-chocolate-cover.jpg",
-   "built": "2026-11-07 17:33"
+   "built": "2026-11-07 20:38"
   },
   {
    "id": "honey-pastries",
@@ -1451,7 +1451,7 @@
    "href": "catalogs/Honey-Pastries.pdf",
    "file_name": "Honey-Pastries.pdf",
    "cover": "catalogs/honey-pastries-cover.jpg",
-   "built": "2026-11-07 17:33"
+   "built": "2026-11-07 20:39"
   }
  ]
 }
