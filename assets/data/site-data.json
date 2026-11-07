@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07 20:14",
+ "generated": "2026-11-07 20:37",
  "brand": {
   "name": "Honey",
   "name_caps": "HONEY",
@@ -81,7 +81,7 @@
    "sort": 1,
    "description": "ألواح وقطع شوكولا مرّة وحلوة، سادة ومحشوّة.",
    "count": 30,
-   "cover": "CHOC-012",
+   "cover": "CHOC-029",
    "catalog": "honey-chocolate"
   },
   {
@@ -384,7 +384,7 @@
   },
   {
    "id": "CHOC-013",
-   "name": "شوكولا كريمة فستق",
+   "name": "شوكولا كريمة فستق (زبدة كاكاو)",
    "name_en": null,
    "category": "chocolate",
    "order": 13,
@@ -502,7 +502,7 @@
    "name": "شوكولا ملوكية بندق حلوة",
    "name_en": null,
    "category": "chocolate",
-   "order": 19,
+   "order": 18,
    "featured": false,
    "img": {
     "thumb": {
@@ -525,7 +525,7 @@
    "name": "شوكولا ملوكية لوز مرة",
    "name_en": null,
    "category": "chocolate",
-   "order": 20,
+   "order": 19,
    "featured": false,
    "img": {
     "thumb": {
@@ -548,7 +548,7 @@
    "name": "شوكولا ملوكية لوز حلوة",
    "name_en": null,
    "category": "chocolate",
-   "order": 21,
+   "order": 20,
    "featured": false,
    "img": {
     "thumb": {
@@ -567,214 +567,11 @@
    "extra": []
   },
   {
-   "id": "CHOC-022",
-   "name": "شوكولا نسكافيه",
-   "name_en": null,
-   "category": "chocolate",
-   "order": 22,
-   "featured": false,
-   "img": {
-    "thumb": {
-     "jpg": "assets/img/products/thumb/CHOC-022.jpg",
-     "webp": "assets/img/products/thumb/CHOC-022.webp",
-     "avif": "assets/img/products/thumb/CHOC-022.avif"
-    },
-    "web": {
-     "jpg": "assets/img/products/web/CHOC-022.jpg",
-     "webp": "assets/img/products/web/CHOC-022.webp",
-     "avif": "assets/img/products/web/CHOC-022.avif"
-    }
-   },
-   "gallery": [],
-   "fields": {},
-   "extra": [
-    {
-     "label": "نوع الشوكولا",
-     "value": "(زبدة كاكاو)",
-     "visible": true
-    }
-   ]
-  },
-  {
-   "id": "CHOC-023",
-   "name": "شوكولا كريمة بندق",
-   "name_en": null,
-   "category": "chocolate",
-   "order": 23,
-   "featured": false,
-   "img": {
-    "thumb": {
-     "jpg": "assets/img/products/thumb/CHOC-023.jpg",
-     "webp": "assets/img/products/thumb/CHOC-023.webp",
-     "avif": "assets/img/products/thumb/CHOC-023.avif"
-    },
-    "web": {
-     "jpg": "assets/img/products/web/CHOC-023.jpg",
-     "webp": "assets/img/products/web/CHOC-023.webp",
-     "avif": "assets/img/products/web/CHOC-023.avif"
-    }
-   },
-   "gallery": [],
-   "fields": {},
-   "extra": [
-    {
-     "label": "نوع الشوكولا",
-     "value": "(زبدة كاكاو)",
-     "visible": true
-    }
-   ]
-  },
-  {
-   "id": "CHOC-024",
-   "name": "شوكولا ملوكية بندق",
-   "name_en": null,
-   "category": "chocolate",
-   "order": 24,
-   "featured": false,
-   "img": {
-    "thumb": {
-     "jpg": "assets/img/products/thumb/CHOC-024.jpg",
-     "webp": "assets/img/products/thumb/CHOC-024.webp",
-     "avif": "assets/img/products/thumb/CHOC-024.avif"
-    },
-    "web": {
-     "jpg": "assets/img/products/web/CHOC-024.jpg",
-     "webp": "assets/img/products/web/CHOC-024.webp",
-     "avif": "assets/img/products/web/CHOC-024.avif"
-    }
-   },
-   "gallery": [],
-   "fields": {},
-   "extra": [
-    {
-     "label": "نوع الشوكولا",
-     "value": "(زبدة كاكاو)",
-     "visible": true
-    }
-   ]
-  },
-  {
-   "id": "CHOC-025",
-   "name": "شوكولا كريمة لوز",
-   "name_en": null,
-   "category": "chocolate",
-   "order": 25,
-   "featured": false,
-   "img": {
-    "thumb": {
-     "jpg": "assets/img/products/thumb/CHOC-025.jpg",
-     "webp": "assets/img/products/thumb/CHOC-025.webp",
-     "avif": "assets/img/products/thumb/CHOC-025.avif"
-    },
-    "web": {
-     "jpg": "assets/img/products/web/CHOC-025.jpg",
-     "webp": "assets/img/products/web/CHOC-025.webp",
-     "avif": "assets/img/products/web/CHOC-025.avif"
-    }
-   },
-   "gallery": [],
-   "fields": {},
-   "extra": [
-    {
-     "label": "نوع الشوكولا",
-     "value": "(زبدة كاكاو)",
-     "visible": true
-    }
-   ]
-  },
-  {
-   "id": "CHOC-026",
-   "name": "شوكولا بوملي",
-   "name_en": null,
-   "category": "chocolate",
-   "order": 26,
-   "featured": false,
-   "img": {
-    "thumb": {
-     "jpg": "assets/img/products/thumb/CHOC-026.jpg",
-     "webp": "assets/img/products/thumb/CHOC-026.webp",
-     "avif": "assets/img/products/thumb/CHOC-026.avif"
-    },
-    "web": {
-     "jpg": "assets/img/products/web/CHOC-026.jpg",
-     "webp": "assets/img/products/web/CHOC-026.webp",
-     "avif": "assets/img/products/web/CHOC-026.avif"
-    }
-   },
-   "gallery": [],
-   "fields": {},
-   "extra": [
-    {
-     "label": "نوع الشوكولا",
-     "value": "(زبدة كاكاو)",
-     "visible": true
-    }
-   ]
-  },
-  {
-   "id": "CHOC-027",
-   "name": "شوكولا فواكه مجففة",
-   "name_en": null,
-   "category": "chocolate",
-   "order": 27,
-   "featured": false,
-   "img": {
-    "thumb": {
-     "jpg": "assets/img/products/thumb/CHOC-027.jpg",
-     "webp": "assets/img/products/thumb/CHOC-027.webp",
-     "avif": "assets/img/products/thumb/CHOC-027.avif"
-    },
-    "web": {
-     "jpg": "assets/img/products/web/CHOC-027.jpg",
-     "webp": "assets/img/products/web/CHOC-027.webp",
-     "avif": "assets/img/products/web/CHOC-027.avif"
-    }
-   },
-   "gallery": [],
-   "fields": {},
-   "extra": [
-    {
-     "label": "نوع الشوكولا",
-     "value": "(زبدة كاكاو)",
-     "visible": true
-    }
-   ]
-  },
-  {
-   "id": "CHOC-028",
-   "name": "شوكولا كريمة فستق",
-   "name_en": null,
-   "category": "chocolate",
-   "order": 28,
-   "featured": false,
-   "img": {
-    "thumb": {
-     "jpg": "assets/img/products/thumb/CHOC-028.jpg",
-     "webp": "assets/img/products/thumb/CHOC-028.webp",
-     "avif": "assets/img/products/thumb/CHOC-028.avif"
-    },
-    "web": {
-     "jpg": "assets/img/products/web/CHOC-028.jpg",
-     "webp": "assets/img/products/web/CHOC-028.webp",
-     "avif": "assets/img/products/web/CHOC-028.avif"
-    }
-   },
-   "gallery": [],
-   "fields": {},
-   "extra": [
-    {
-     "label": "نوع الشوكولا",
-     "value": "(زبدة كاكاو)",
-     "visible": true
-    }
-   ]
-  },
-  {
    "id": "CHOC-029",
-   "name": "شوكولا ملوكية فستق حلوة",
+   "name": "شوكولا ملوكية فستق حلوة (زبدة كاكاو)",
    "name_en": null,
    "category": "chocolate",
-   "order": 29,
+   "order": 21,
    "featured": false,
    "img": {
     "thumb": {
@@ -800,10 +597,10 @@
   },
   {
    "id": "CHOC-030",
-   "name": "شوكولا ملوكية فستق مرة",
+   "name": "شوكولا ملوكية فستق مرة (زبدة كاكاو)",
    "name_en": null,
    "category": "chocolate",
-   "order": 30,
+   "order": 22,
    "featured": false,
    "img": {
     "thumb": {
@@ -829,10 +626,10 @@
   },
   {
    "id": "CHOC-031",
-   "name": "شوكولا فستق",
+   "name": "شوكولا فستق (زبدة كاكاو)",
    "name_en": null,
    "category": "chocolate",
-   "order": 31,
+   "order": 23,
    "featured": false,
    "img": {
     "thumb": {
@@ -844,6 +641,209 @@
      "jpg": "assets/img/products/web/CHOC-031.jpg",
      "webp": "assets/img/products/web/CHOC-031.webp",
      "avif": "assets/img/products/web/CHOC-031.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": [
+    {
+     "label": "نوع الشوكولا",
+     "value": "(زبدة كاكاو)",
+     "visible": true
+    }
+   ]
+  },
+  {
+   "id": "CHOC-028",
+   "name": "شوكولا كريمة فستق (زبدة كاكاو)",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 24,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-028.jpg",
+     "webp": "assets/img/products/thumb/CHOC-028.webp",
+     "avif": "assets/img/products/thumb/CHOC-028.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-028.jpg",
+     "webp": "assets/img/products/web/CHOC-028.webp",
+     "avif": "assets/img/products/web/CHOC-028.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": [
+    {
+     "label": "نوع الشوكولا",
+     "value": "(زبدة كاكاو)",
+     "visible": true
+    }
+   ]
+  },
+  {
+   "id": "CHOC-024",
+   "name": "شوكولا ملوكية بندق (زبدة كاكاو)",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 25,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-024.jpg",
+     "webp": "assets/img/products/thumb/CHOC-024.webp",
+     "avif": "assets/img/products/thumb/CHOC-024.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-024.jpg",
+     "webp": "assets/img/products/web/CHOC-024.webp",
+     "avif": "assets/img/products/web/CHOC-024.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": [
+    {
+     "label": "نوع الشوكولا",
+     "value": "(زبدة كاكاو)",
+     "visible": true
+    }
+   ]
+  },
+  {
+   "id": "CHOC-022",
+   "name": "شوكولا نسكافيه (زبدة كاكاو)",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 26,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-022.jpg",
+     "webp": "assets/img/products/thumb/CHOC-022.webp",
+     "avif": "assets/img/products/thumb/CHOC-022.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-022.jpg",
+     "webp": "assets/img/products/web/CHOC-022.webp",
+     "avif": "assets/img/products/web/CHOC-022.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": [
+    {
+     "label": "نوع الشوكولا",
+     "value": "(زبدة كاكاو)",
+     "visible": true
+    }
+   ]
+  },
+  {
+   "id": "CHOC-023",
+   "name": "شوكولا كريمة بندق (زبدة كاكاو)",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 27,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-023.jpg",
+     "webp": "assets/img/products/thumb/CHOC-023.webp",
+     "avif": "assets/img/products/thumb/CHOC-023.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-023.jpg",
+     "webp": "assets/img/products/web/CHOC-023.webp",
+     "avif": "assets/img/products/web/CHOC-023.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": [
+    {
+     "label": "نوع الشوكولا",
+     "value": "(زبدة كاكاو)",
+     "visible": true
+    }
+   ]
+  },
+  {
+   "id": "CHOC-025",
+   "name": "شوكولا كريمة لوز (زبدة كاكاو)",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 28,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-025.jpg",
+     "webp": "assets/img/products/thumb/CHOC-025.webp",
+     "avif": "assets/img/products/thumb/CHOC-025.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-025.jpg",
+     "webp": "assets/img/products/web/CHOC-025.webp",
+     "avif": "assets/img/products/web/CHOC-025.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": [
+    {
+     "label": "نوع الشوكولا",
+     "value": "(زبدة كاكاو)",
+     "visible": true
+    }
+   ]
+  },
+  {
+   "id": "CHOC-026",
+   "name": "شوكولا بوملي (زبدة كاكاو)",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 29,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-026.jpg",
+     "webp": "assets/img/products/thumb/CHOC-026.webp",
+     "avif": "assets/img/products/thumb/CHOC-026.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-026.jpg",
+     "webp": "assets/img/products/web/CHOC-026.webp",
+     "avif": "assets/img/products/web/CHOC-026.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": [
+    {
+     "label": "نوع الشوكولا",
+     "value": "(زبدة كاكاو)",
+     "visible": true
+    }
+   ]
+  },
+  {
+   "id": "CHOC-027",
+   "name": "شوكولا فواكه مجففة (زبدة كاكاو)",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 30,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-027.jpg",
+     "webp": "assets/img/products/thumb/CHOC-027.webp",
+     "avif": "assets/img/products/thumb/CHOC-027.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-027.jpg",
+     "webp": "assets/img/products/web/CHOC-027.webp",
+     "avif": "assets/img/products/web/CHOC-027.avif"
     }
    },
    "gallery": [],
