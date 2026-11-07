@@ -10,6 +10,8 @@
   const cat = (id) => D.categories.find((c) => c.id === id) || {};
   const catName = (id) => cat(id).name_ar || "";
   const catalogById = (id) => D.catalogs.find((k) => k.id === id);
+  // ?v=<file fingerprint>: view/share always get the latest PDF, never an old copy kept by the browser or WhatsApp
+  const catHref = (k) => k.href + (k.v ? "?v=" + k.v : "");
   const byOrder = (a, b) => a.order - b.order || a.id.localeCompare(b.id);
   const page = document.body.dataset.page;
   const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -209,14 +211,14 @@
     const k = catalogById(id); if (!k) return;
     const base = (S.share && S.share.message_ar) || "كتالوج حلويات HONEY:";
     const text = k.main ? base : `${k.title} من حلويات HONEY. تصفّحه من هنا:`;
-    share({ title: `مشاركة ${k.title}`, text, url: absUrl(k.href), file: k.href, fileName: k.file_name });
+    share({ title: `مشاركة ${k.title}`, text, url: absUrl(catHref(k)), file: catHref(k), fileName: k.file_name });
   };
   document.addEventListener("click", async (e) => {
     const sc = e.target.closest("[data-share-catalog]"); if (sc) { e.preventDefault(); shareCatalog(sc.dataset.shareCatalog); return; }
     const cp = e.target.closest("[data-copy]"); if (cp) { toast((await copyText(cp.dataset.copy)) ? "تم نسخ الرقم" : "تعذّر النسخ"); return; }
     const cf = e.target.closest("[data-copy-from]");
     if (cf) {
-      const k = D.catalogs.find((x) => x.main); const txt = $("#" + cf.dataset.copyFrom).value.trim() + (k ? "\n" + absUrl(k.href) : "");
+      const k = D.catalogs.find((x) => x.main); const txt = $("#" + cf.dataset.copyFrom).value.trim() + (k ? "\n" + absUrl(catHref(k)) : "");
       toast((await copyText(txt)) ? "تم نسخ الرسالة مع الرابط" : "تعذّر النسخ");
     }
   });
@@ -263,7 +265,7 @@
         count.textContent = list.length ? `${list.length} من ${state.cat === "all" ? D.products.length : c.count} صنفاً` : "";
         const k = state.cat !== "all" && c.catalog ? catalogById(c.catalog) : null;
         acts.innerHTML = state.cat === "all" ? "" :
-          `${k ? `<a class="link-more" href="${esc(k.href)}" target="_blank" rel="noopener">${IC.book} كتالوج القسم</a>&nbsp;&nbsp;` : ""}<button class="link-more" type="button" data-share-section style="border:0;background-color:transparent;cursor:pointer">${IC.share} مشاركة القسم</button>`;
+          `${k ? `<a class="link-more" href="${esc(catHref(k))}" target="_blank" rel="noopener">${IC.book} كتالوج القسم</a>&nbsp;&nbsp;` : ""}<button class="link-more" type="button" data-share-section style="border:0;background-color:transparent;cursor:pointer">${IC.share} مشاركة القسم</button>`;
         $$(".chip", chips).forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.cat === state.cat)));
         input.parentElement.classList.toggle("has-value", !!state.q);
         const u = new URLSearchParams();
@@ -343,7 +345,7 @@
             <div class="actions">
               ${tel ? `<a class="btn btn-primary" href="tel:${esc(tel)}">${IC.phone} اتصل للطلب</a>` : ""}
               <button class="btn btn-ghost" type="button" data-share-product>${IC.share} مشاركة</button>
-              ${k ? `<a class="btn btn-ghost" href="${esc(k.href)}" target="_blank" rel="noopener">${IC.book} كتالوج القسم</a>` : ""}
+              ${k ? `<a class="btn btn-ghost" href="${esc(catHref(k))}" target="_blank" rel="noopener">${IC.book} كتالوج القسم</a>` : ""}
             </div>
             <a class="back-link" href="${esc(backHref)}">${IC.back} ${back ? "العودة إلى النتائج" : "كل أصناف " + esc(c.name_ar)}</a>
             <div class="pager">
