@@ -1,0 +1,26 @@
+/* GENERATED from 01_Brand_Identity/brand_tokens.json by tools/build_site.py — do not edit by hand */
+:root {
+  --cacao: #3B2218;
+  --ganache: #6B4231;
+  --champagne: #B8925A;
+  --champagne-light: #D9C29A;
+  --champagne-text: #86663A;
+  --pearl: #FAF6EF;
+  --ivory: #F3ECE1;
+  --sand: #E4D6C2;
+  --taupe: #6E5E52;
+  --success: #3F7356;
+  --warning: #9A6514;
+  --error: #A23B2E;
+  --info: #3A6683;
+}
+@font-face{font-family:"Amiri";src:url("../fonts/amiri-400.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Amiri";src:url("../fonts/amiri-700.woff") format("woff");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Plex";src:url("../fonts/plex-300.woff") format("woff");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Plex";src:url("../fonts/plex-400.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Plex";src:url("../fonts/plex-500.woff") format("woff");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Plex";src:url("../fonts/plex-600.woff") format("woff");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant";src:url("../fonts/cormorant-500.woff") format("woff");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant";src:url("../fonts/cormorant-600.woff") format("woff");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant";src:url("../fonts/cormorant-500i.woff") format("woff");font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:"Cormorant";src:url("../fonts/cormorant-600i.woff") format("woff");font-weight:600;font-style:italic;font-display:swap}

@@ -1,0 +1,947 @@
+{
+ "generated": "2026-11-07 15:31",
+ "brand": {
+  "name": "Honey",
+  "name_caps": "HONEY",
+  "descriptor_en": "Chocolate & Sweets",
+  "descriptor_ar": "شوكولا وحلويات",
+  "status": "approved-v1"
+ },
+ "settings": {
+  "_about": "Business information used by the website and the catalogs. Only confirmed data. Empty (null) values are hidden automatically. After editing run 2_build_all.bat",
+  "business": {
+   "display_name": "حلويات HONEY",
+   "activity_ar": "شوكولا ومعجنات وحلو عربي",
+   "about_ar": null,
+   "founded_year": null,
+   "city": "إدلب",
+   "country": "سوريا"
+  },
+  "contact": {
+   "phone_display": "0941536702",
+   "phone_tel": "+963941536702",
+   "whatsapp": null,
+   "whatsapp_note": "Not added: WhatsApp on this number is not confirmed yet. Put the number in international form (e.g. 963941536702) here to show a WhatsApp button.",
+   "email": null,
+   "working_hours_ar": null,
+   "locations": [
+    {
+     "type": "shop",
+     "label_ar": "المحل",
+     "name_ar": "حلويات HONEY",
+     "address_ar": "إدلب، شمال دوار الدفاع المدني، مقابل أكاديمية أبيكس الرياضية",
+     "map_url": null
+    },
+    {
+     "type": "workshop",
+     "label_ar": "المعمل",
+     "name_ar": "معمل HONEY",
+     "address_ar": "كفر جالس، الحارة الشرقية",
+     "map_url": null
+    }
+   ]
+  },
+  "social": {
+   "facebook": null,
+   "facebook_page_name": "honey gida",
+   "facebook_note": "Page name given by the owner; official link not verified yet — add the exact URL here.",
+   "instagram": null,
+   "tiktok": null,
+   "telegram": null
+  },
+  "website": {
+   "base_url": "https://ahmadnajar3.github.io/",
+   "tagline_ar": "شوكولا ومعجنات وحلو عربي بلمسة من الدفء والضيافة",
+   "tagline_status": "suggested — edit freely",
+   "publish_repo": "https://github.com/ahmadnajar3/ahmadnajar3.github.io.git",
+   "telemetry": false
+  },
+  "share": {
+   "message_ar": "كتالوج حلويات HONEY: شوكولا، معجنات، وحلو عربي. تصفّحه من هنا:"
+  }
+ },
+ "categories": [
+  {
+   "id": "chocolate",
+   "name_ar": "الشوكولا",
+   "name_en": "Chocolate",
+   "sort": 1,
+   "description": "ألواح وقطع شوكولا مرّة وحلوة، سادة ومحشوّة.",
+   "count": 11,
+   "cover": "CHOC-011",
+   "catalog": "honey-chocolate"
+  },
+  {
+   "id": "pastries",
+   "name_ar": "المعجنات",
+   "name_en": "Pastries",
+   "sort": 2,
+   "description": "معمول وبرازق وبيتيفور وكعك، حلو ومالح.",
+   "count": 8,
+   "cover": "PAST-002",
+   "catalog": "honey-pastries"
+  },
+  {
+   "id": "arabic-sweets",
+   "name_ar": "الحلو العربي",
+   "name_en": "Arabic Sweets",
+   "sort": 3,
+   "description": "أصناف الحلو العربي بالفستق والكاجو، وعلب مشكّلة.",
+   "count": 15,
+   "cover": "ARAB-001",
+   "catalog": "honey-arabic-sweets"
+  }
+ ],
+ "products": [
+  {
+   "id": "CHOC-001",
+   "name": "بلاطة لوز مرة",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 1,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-001.jpg",
+     "webp": "assets/img/products/thumb/CHOC-001.webp",
+     "avif": "assets/img/products/thumb/CHOC-001.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-001.jpg",
+     "webp": "assets/img/products/web/CHOC-001.webp",
+     "avif": "assets/img/products/web/CHOC-001.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "CHOC-002",
+   "name": "بلاطة لوز حلوة",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 2,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-002.jpg",
+     "webp": "assets/img/products/thumb/CHOC-002.webp",
+     "avif": "assets/img/products/thumb/CHOC-002.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-002.jpg",
+     "webp": "assets/img/products/web/CHOC-002.webp",
+     "avif": "assets/img/products/web/CHOC-002.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "CHOC-003",
+   "name": "شوكولا تويكس",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 3,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-003.jpg",
+     "webp": "assets/img/products/thumb/CHOC-003.webp",
+     "avif": "assets/img/products/thumb/CHOC-003.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-003.jpg",
+     "webp": "assets/img/products/web/CHOC-003.webp",
+     "avif": "assets/img/products/web/CHOC-003.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "CHOC-004",
+   "name": "شوكولا سادة حلوة",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 4,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-004.jpg",
+     "webp": "assets/img/products/thumb/CHOC-004.webp",
+     "avif": "assets/img/products/thumb/CHOC-004.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-004.jpg",
+     "webp": "assets/img/products/web/CHOC-004.webp",
+     "avif": "assets/img/products/web/CHOC-004.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "CHOC-005",
+   "name": "شوكولا سادة مرة",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 5,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-005.jpg",
+     "webp": "assets/img/products/thumb/CHOC-005.webp",
+     "avif": "assets/img/products/thumb/CHOC-005.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-005.jpg",
+     "webp": "assets/img/products/web/CHOC-005.webp",
+     "avif": "assets/img/products/web/CHOC-005.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "CHOC-006",
+   "name": "شوكولا فريز مرة",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 6,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-006.jpg",
+     "webp": "assets/img/products/thumb/CHOC-006.webp",
+     "avif": "assets/img/products/thumb/CHOC-006.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-006.jpg",
+     "webp": "assets/img/products/web/CHOC-006.webp",
+     "avif": "assets/img/products/web/CHOC-006.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "CHOC-007",
+   "name": "شوكولا كريمة بندق",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 7,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-007.jpg",
+     "webp": "assets/img/products/thumb/CHOC-007.webp",
+     "avif": "assets/img/products/thumb/CHOC-007.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-007.jpg",
+     "webp": "assets/img/products/web/CHOC-007.webp",
+     "avif": "assets/img/products/web/CHOC-007.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "CHOC-008",
+   "name": "شوكولا كريمة لوز",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 8,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-008.jpg",
+     "webp": "assets/img/products/thumb/CHOC-008.webp",
+     "avif": "assets/img/products/thumb/CHOC-008.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-008.jpg",
+     "webp": "assets/img/products/web/CHOC-008.webp",
+     "avif": "assets/img/products/web/CHOC-008.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "CHOC-009",
+   "name": "شوكولا نسكافيه حلوة",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 9,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-009.jpg",
+     "webp": "assets/img/products/thumb/CHOC-009.webp",
+     "avif": "assets/img/products/thumb/CHOC-009.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-009.jpg",
+     "webp": "assets/img/products/web/CHOC-009.webp",
+     "avif": "assets/img/products/web/CHOC-009.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "CHOC-010",
+   "name": "شوكولا هال مرة",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 10,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-010.jpg",
+     "webp": "assets/img/products/thumb/CHOC-010.webp",
+     "avif": "assets/img/products/thumb/CHOC-010.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-010.jpg",
+     "webp": "assets/img/products/web/CHOC-010.webp",
+     "avif": "assets/img/products/web/CHOC-010.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "CHOC-011",
+   "name": "فريرو",
+   "name_en": null,
+   "category": "chocolate",
+   "order": 11,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/CHOC-011.jpg",
+     "webp": "assets/img/products/thumb/CHOC-011.webp",
+     "avif": "assets/img/products/thumb/CHOC-011.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/CHOC-011.jpg",
+     "webp": "assets/img/products/web/CHOC-011.webp",
+     "avif": "assets/img/products/web/CHOC-011.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "PAST-001",
+   "name": "برازق",
+   "name_en": null,
+   "category": "pastries",
+   "order": 1,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/PAST-001.jpg",
+     "webp": "assets/img/products/thumb/PAST-001.webp",
+     "avif": "assets/img/products/thumb/PAST-001.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/PAST-001.jpg",
+     "webp": "assets/img/products/web/PAST-001.webp",
+     "avif": "assets/img/products/web/PAST-001.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "PAST-002",
+   "name": "بيتيفور حلو",
+   "name_en": null,
+   "category": "pastries",
+   "order": 2,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/PAST-002.jpg",
+     "webp": "assets/img/products/thumb/PAST-002.webp",
+     "avif": "assets/img/products/thumb/PAST-002.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/PAST-002.jpg",
+     "webp": "assets/img/products/web/PAST-002.webp",
+     "avif": "assets/img/products/web/PAST-002.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "PAST-003",
+   "name": "بيتيفور مالح",
+   "name_en": null,
+   "category": "pastries",
+   "order": 3,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/PAST-003.jpg",
+     "webp": "assets/img/products/thumb/PAST-003.webp",
+     "avif": "assets/img/products/thumb/PAST-003.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/PAST-003.jpg",
+     "webp": "assets/img/products/web/PAST-003.webp",
+     "avif": "assets/img/products/web/PAST-003.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "PAST-004",
+   "name": "سنيورة",
+   "name_en": null,
+   "category": "pastries",
+   "order": 4,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/PAST-004.jpg",
+     "webp": "assets/img/products/thumb/PAST-004.webp",
+     "avif": "assets/img/products/thumb/PAST-004.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/PAST-004.jpg",
+     "webp": "assets/img/products/web/PAST-004.webp",
+     "avif": "assets/img/products/web/PAST-004.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "PAST-005",
+   "name": "كعك مالح",
+   "name_en": null,
+   "category": "pastries",
+   "order": 5,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/PAST-005.jpg",
+     "webp": "assets/img/products/thumb/PAST-005.webp",
+     "avif": "assets/img/products/thumb/PAST-005.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/PAST-005.jpg",
+     "webp": "assets/img/products/web/PAST-005.webp",
+     "avif": "assets/img/products/web/PAST-005.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "PAST-006",
+   "name": "معمول بالجوز",
+   "name_en": null,
+   "category": "pastries",
+   "order": 6,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/PAST-006.jpg",
+     "webp": "assets/img/products/thumb/PAST-006.webp",
+     "avif": "assets/img/products/thumb/PAST-006.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/PAST-006.jpg",
+     "webp": "assets/img/products/web/PAST-006.webp",
+     "avif": "assets/img/products/web/PAST-006.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "PAST-007",
+   "name": "معمول بالفتسق الحلبي",
+   "name_en": null,
+   "category": "pastries",
+   "order": 7,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/PAST-007.jpg",
+     "webp": "assets/img/products/thumb/PAST-007.webp",
+     "avif": "assets/img/products/thumb/PAST-007.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/PAST-007.jpg",
+     "webp": "assets/img/products/web/PAST-007.webp",
+     "avif": "assets/img/products/web/PAST-007.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "PAST-008",
+   "name": "معمول عجوة",
+   "name_en": null,
+   "category": "pastries",
+   "order": 8,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/PAST-008.jpg",
+     "webp": "assets/img/products/thumb/PAST-008.webp",
+     "avif": "assets/img/products/thumb/PAST-008.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/PAST-008.jpg",
+     "webp": "assets/img/products/web/PAST-008.webp",
+     "avif": "assets/img/products/web/PAST-008.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-001",
+   "name": "اصابع فستق",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 1,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-001.jpg",
+     "webp": "assets/img/products/thumb/ARAB-001.webp",
+     "avif": "assets/img/products/thumb/ARAB-001.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-001.jpg",
+     "webp": "assets/img/products/web/ARAB-001.webp",
+     "avif": "assets/img/products/web/ARAB-001.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-002",
+   "name": "بقجة",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 2,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-002.jpg",
+     "webp": "assets/img/products/thumb/ARAB-002.webp",
+     "avif": "assets/img/products/thumb/ARAB-002.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-002.jpg",
+     "webp": "assets/img/products/web/ARAB-002.webp",
+     "avif": "assets/img/products/web/ARAB-002.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-003",
+   "name": "بلورية",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 3,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-003.jpg",
+     "webp": "assets/img/products/thumb/ARAB-003.webp",
+     "avif": "assets/img/products/thumb/ARAB-003.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-003.jpg",
+     "webp": "assets/img/products/web/ARAB-003.webp",
+     "avif": "assets/img/products/web/ARAB-003.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-004",
+   "name": "تاج الملك",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 4,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-004.jpg",
+     "webp": "assets/img/products/thumb/ARAB-004.webp",
+     "avif": "assets/img/products/thumb/ARAB-004.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-004.jpg",
+     "webp": "assets/img/products/web/ARAB-004.webp",
+     "avif": "assets/img/products/web/ARAB-004.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-005",
+   "name": "عصملية كاجو",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 5,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-005.jpg",
+     "webp": "assets/img/products/thumb/ARAB-005.webp",
+     "avif": "assets/img/products/thumb/ARAB-005.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-005.jpg",
+     "webp": "assets/img/products/web/ARAB-005.webp",
+     "avif": "assets/img/products/web/ARAB-005.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-006",
+   "name": "علبة حلو عربي فستق",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 6,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-006.jpg",
+     "webp": "assets/img/products/thumb/ARAB-006.webp",
+     "avif": "assets/img/products/thumb/ARAB-006.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-006.jpg",
+     "webp": "assets/img/products/web/ARAB-006.webp",
+     "avif": "assets/img/products/web/ARAB-006.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-007",
+   "name": "علبة حلو عربي كاجو",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 7,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-007.jpg",
+     "webp": "assets/img/products/thumb/ARAB-007.webp",
+     "avif": "assets/img/products/thumb/ARAB-007.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-007.jpg",
+     "webp": "assets/img/products/web/ARAB-007.webp",
+     "avif": "assets/img/products/web/ARAB-007.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-008",
+   "name": "علبة حلو عربي هني فستق",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 8,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-008.jpg",
+     "webp": "assets/img/products/thumb/ARAB-008.webp",
+     "avif": "assets/img/products/thumb/ARAB-008.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-008.jpg",
+     "webp": "assets/img/products/web/ARAB-008.webp",
+     "avif": "assets/img/products/web/ARAB-008.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-009",
+   "name": "علبة حلو عربي هني كاجو",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 9,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-009.jpg",
+     "webp": "assets/img/products/thumb/ARAB-009.webp",
+     "avif": "assets/img/products/thumb/ARAB-009.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-009.jpg",
+     "webp": "assets/img/products/web/ARAB-009.webp",
+     "avif": "assets/img/products/web/ARAB-009.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-010",
+   "name": "لسان العصفور",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 10,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-010.jpg",
+     "webp": "assets/img/products/thumb/ARAB-010.webp",
+     "avif": "assets/img/products/thumb/ARAB-010.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-010.jpg",
+     "webp": "assets/img/products/web/ARAB-010.webp",
+     "avif": "assets/img/products/web/ARAB-010.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-011",
+   "name": "مبرومة",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 11,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-011.jpg",
+     "webp": "assets/img/products/thumb/ARAB-011.webp",
+     "avif": "assets/img/products/thumb/ARAB-011.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-011.jpg",
+     "webp": "assets/img/products/web/ARAB-011.webp",
+     "avif": "assets/img/products/web/ARAB-011.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-012",
+   "name": "ميديا",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 12,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-012.jpg",
+     "webp": "assets/img/products/thumb/ARAB-012.webp",
+     "avif": "assets/img/products/thumb/ARAB-012.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-012.jpg",
+     "webp": "assets/img/products/web/ARAB-012.webp",
+     "avif": "assets/img/products/web/ARAB-012.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-013",
+   "name": "هريسة باشا",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 13,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-013.jpg",
+     "webp": "assets/img/products/thumb/ARAB-013.webp",
+     "avif": "assets/img/products/thumb/ARAB-013.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-013.jpg",
+     "webp": "assets/img/products/web/ARAB-013.webp",
+     "avif": "assets/img/products/web/ARAB-013.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-014",
+   "name": "وربات قشطة",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 14,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-014.jpg",
+     "webp": "assets/img/products/thumb/ARAB-014.webp",
+     "avif": "assets/img/products/thumb/ARAB-014.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-014.jpg",
+     "webp": "assets/img/products/web/ARAB-014.webp",
+     "avif": "assets/img/products/web/ARAB-014.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "ARAB-015",
+   "name": "يبرق",
+   "name_en": null,
+   "category": "arabic-sweets",
+   "order": 15,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/ARAB-015.jpg",
+     "webp": "assets/img/products/thumb/ARAB-015.webp",
+     "avif": "assets/img/products/thumb/ARAB-015.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/ARAB-015.jpg",
+     "webp": "assets/img/products/web/ARAB-015.webp",
+     "avif": "assets/img/products/web/ARAB-015.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  }
+ ],
+ "catalogs": [
+  {
+   "id": "honey-catalog",
+   "title": "كتالوج منتجات HONEY",
+   "subtitle": "Chocolate · Pastries · Arabic Sweets",
+   "main": true,
+   "categories": [
+    "chocolate",
+    "pastries",
+    "arabic-sweets"
+   ],
+   "pages": 24,
+   "products": 34,
+   "mb": 4.73,
+   "href": "catalogs/Honey-Catalog.pdf",
+   "file_name": "Honey-Catalog.pdf",
+   "cover": "catalogs/honey-catalog-cover.jpg",
+   "built": "2026-10-24 20:56"
+  },
+  {
+   "id": "honey-arabic-sweets",
+   "title": "كتالوج الحلو العربي",
+   "subtitle": "Arabic Sweets Collection",
+   "main": false,
+   "categories": [
+    "arabic-sweets"
+   ],
+   "pages": 12,
+   "products": 15,
+   "mb": 2.65,
+   "href": "catalogs/Honey-Arabic-Sweets.pdf",
+   "file_name": "Honey-Arabic-Sweets.pdf",
+   "cover": "catalogs/honey-arabic-sweets-cover.jpg",
+   "built": "2026-10-24 20:56"
+  },
+  {
+   "id": "honey-chocolate",
+   "title": "كتالوج الشوكولا",
+   "subtitle": "Chocolate Collection",
+   "main": false,
+   "categories": [
+    "chocolate"
+   ],
+   "pages": 10,
+   "products": 11,
+   "mb": 1.18,
+   "href": "catalogs/Honey-Chocolate.pdf",
+   "file_name": "Honey-Chocolate.pdf",
+   "cover": "catalogs/honey-chocolate-cover.jpg",
+   "built": "2026-10-24 20:56"
+  },
+  {
+   "id": "honey-pastries",
+   "title": "كتالوج المعجنات",
+   "subtitle": "Pastries Collection",
+   "main": false,
+   "categories": [
+    "pastries"
+   ],
+   "pages": 8,
+   "products": 8,
+   "mb": 2.03,
+   "href": "catalogs/Honey-Pastries.pdf",
+   "file_name": "Honey-Pastries.pdf",
+   "cover": "catalogs/honey-pastries-cover.jpg",
+   "built": "2026-10-24 20:56"
+  }
+ ]
+}
