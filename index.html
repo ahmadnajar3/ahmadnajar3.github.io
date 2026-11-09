@@ -13,15 +13,17 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/brand/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/brand/favicon-180.png">
 <link rel="stylesheet" href="assets/css/tokens.css?v=f843d0a6">
-<link rel="stylesheet" href="assets/css/site.css?v=1a50e3e5">
+<link rel="stylesheet" href="assets/css/motion.css?v=0443c3ec">
+<link rel="stylesheet" href="assets/css/site.css?v=caecd503">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body data-page="home">
 <a class="skip" href="#main">تخطَّ إلى المحتوى</a>
 <header class="site-header">
+  <span class="nav-glass" aria-hidden="true"></span>
   <div class="wrap nav">
     <a class="brand" href="index.html" aria-label="HONEY — الصفحة الرئيسية"><img src="assets/img/brand/honey-logo-horizontal.svg" alt="HONEY" width="250" height="78"></a>
-    <ul class="menu" id="menu"><li><a href="index.html" aria-current="page">الرئيسية</a></li><li><a href="products.html">المنتجات</a></li><li><a href="catalogs.html">الكتالوجات</a></li><li><a href="about.html">عن HONEY</a></li><li><a href="contact.html">تواصل معنا</a></li></ul>
+    <ul class="menu" id="menu"><li style="--i:0"><a href="index.html" aria-current="page">الرئيسية</a></li><li style="--i:1"><a href="products.html">المنتجات</a></li><li style="--i:2"><a href="catalogs.html">الكتالوجات</a></li><li style="--i:3"><a href="about.html">عن HONEY</a></li><li style="--i:4"><a href="contact.html">تواصل معنا</a></li></ul>
     <div class="nav-actions">
       <button class="icon-btn" type="button" data-search-open aria-label="بحث عن منتج" aria-controls="search-layer" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></button>
       <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="القائمة"><span></span></button>
@@ -30,7 +32,7 @@
 </header>
 <div class="search-layer" id="search-layer" hidden>
   <div class="search-backdrop" data-search-close></div>
-  <div class="search-panel" role="dialog" aria-modal="true" aria-label="بحث في المنتجات">
+  <div class="search-panel glass" role="dialog" aria-modal="true" aria-label="بحث في المنتجات">
     <div class="wrap">
       <form class="search-row" action="products.html" role="search">
         <label class="search-field"><span class="sr-only">اسم الصنف أو رقمه المرجعي</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>
@@ -47,7 +49,7 @@
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="overline">حلويات HONEY · إدلب</span>
-      <h1 class="h-display">حلاوة تُقدَّم <em>بدفء</em><br>وتُختار بعناية</h1>
+      <h1 class="h-display"><span class="w" style="--i:0">حلاوة</span> <span class="w" style="--i:1">تُقدَّم</span> <em><span class="w" style="--i:2">بدفء</span></em><br><span class="w" style="--i:3">وتُختار</span> <span class="w" style="--i:4">بعناية</span></h1>
       <p class="lead">شوكولا ومعجنات وحلو عربي من HONEY، معروضة بصورها الحقيقية مع رقم مرجعي لكل صنف ليسهل الطلب.</p>
       <div class="actions">
         <a class="btn btn-primary" href="products.html">استكشف المنتجات <svg class="icon go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a>
@@ -63,12 +65,12 @@
   </div>
 </section>
 <section class="facts" aria-label="أرقام سريعة"><div class="wrap"><ul>
-  <li><b>53</b><span>صنفاً معروضاً</span></li>
-  <li><b>3</b><span>أقسام: شوكولا، معجنات، حلو عربي</span></li>
-  <li><b>4</b><span>كتالوجات PDF للمشاركة</span></li>
+  <li><b data-count="53">53</b><span>صنفاً معروضاً</span></li>
+  <li><b data-count="3">3</b><span>أقسام: شوكولا، معجنات، حلو عربي</span></li>
+  <li><b data-count="4">4</b><span>كتالوجات PDF للمشاركة</span></li>
 </ul></div></section>
 <section class="section"><div class="wrap">
-  <div class="section-head"><div><span class="overline">الأقسام</span><h2 class="h-section">تسوّق حسب القسم</h2></div><a class="link-more" href="products.html">كل المنتجات</a></div>
+  <div class="section-head"><div><span class="overline">الأقسام</span><h2 class="h-section" data-reveal="mask">تسوّق حسب القسم</h2></div><a class="link-more" href="products.html">كل المنتجات</a></div>
   <div class="cats"><a class="cat" href="products.html?cat=chocolate" data-reveal>
       <picture><source type="image/avif" srcset="assets/img/products/thumb/CHOC-029.avif 640w, assets/img/products/web/CHOC-029.avif 1600w" sizes="(max-width: 900px) 100vw, 33vw"><source type="image/webp" srcset="assets/img/products/thumb/CHOC-029.webp 640w, assets/img/products/web/CHOC-029.webp 1600w" sizes="(max-width: 900px) 100vw, 33vw"><img src="assets/img/products/web/CHOC-029.jpg" alt="شوكولا ملوكية فستق حلوة (زبدة كاكاو)" width="1600" height="1200" loading="lazy" decoding="async"></picture>
       <div class="body"><span class="idx">01 · Chocolate</span><h3>الشوكولا</h3><p>ألواح وقطع شوكولا مرّة وحلوة، سادة ومحشوّة.</p>
@@ -81,7 +83,7 @@
       <span class="go">15 صنفاً — تصفّح القسم</span></div></a></div>
 </div></section>
 <section class="section tight"><div class="wrap">
-  <div class="section-head"><div><span class="overline">من كل قسم</span><h2 class="h-section">مختارات HONEY</h2></div><a class="link-more" href="products.html">عرض الكل</a></div>
+  <div class="section-head"><div><span class="overline">من كل قسم</span><h2 class="h-section" data-reveal="mask">مختارات HONEY</h2></div><a class="link-more" href="products.html">عرض الكل</a></div>
   <div class="grid" id="featured"></div>
 </div></section>
 <section class="section tight"><div class="wrap"><div class="band" data-reveal>
@@ -89,7 +91,7 @@
       <div><h2>كتالوج HONEY الإلكتروني</h2><p>كل الأقسام في ملف PDF واحد (33 صفحة)، مصمّم للتصفح على الهاتف وجاهز للإرسال عبر واتساب وفيسبوك.</p></div>
       <div class="actions"><a class="btn btn-gold" href="catalogs/Honey-Catalog.pdf?v=5c3618f08a" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg> عرض</a><a class="btn btn-ghost" href="catalogs/Honey-Catalog.pdf?v=5c3618f08a" download="Honey-Catalog.pdf"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> تنزيل PDF</a><button class="btn btn-ghost" type="button" data-share-catalog="honey-catalog"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="17.5" cy="5.5" r="2.5"/><circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/><path d="M8.7 10.8l6.6-4M8.7 13.2l6.6 4"/></svg> مشاركة</button></div></div></div></section>
 <section class="section tight"><div class="wrap">
-  <div class="section-head"><div><span class="overline">زورونا</span><h2 class="h-section">المحل والمعمل</h2></div><a class="link-more" href="contact.html">كل بيانات التواصل</a></div>
+  <div class="section-head"><div><span class="overline">زورونا</span><h2 class="h-section" data-reveal="mask">المحل والمعمل</h2></div><a class="link-more" href="contact.html">كل بيانات التواصل</a></div>
   <div class="visit"><article class="place"><span class="tag">المحل</span><h3>حلويات HONEY</h3><p>إدلب، شمال دوار الدفاع المدني، مقابل أكاديمية أبيكس الرياضية</p></article><article class="place"><span class="tag">المعمل</span><h3>معمل HONEY</h3><p>كفر جالس، الحارة الشرقية</p></article><article class="place dark"><span class="tag">الهاتف</span><h3>للطلبات والاستفسار</h3>
       <a class="phone-big" href="tel:+963941536702">0941536702</a>
       <div class="actions"><a class="btn btn-gold btn-sm" href="tel:+963941536702"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 3.5h2.6l1.5 4-2 1.3a11 11 0 006.5 6.5l1.3-2 4 1.5v2.6a2 2 0 01-2.2 2A16.5 16.5 0 014.6 5.7a2 2 0 012-2.2z"/></svg> اتصل الآن</a>
@@ -109,6 +111,7 @@
 <div class="sheet" id="share-sheet" aria-hidden="true">
   <div class="backdrop" data-sheet-close></div>
   <div class="panel" role="dialog" aria-modal="true" aria-labelledby="share-title">
+    <span class="grab" aria-hidden="true"></span>
     <button class="icon-btn close" type="button" data-sheet-close aria-label="إغلاق"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <h2 id="share-title">مشاركة</h2>
     <label><span class="sr-only">نص الرسالة</span><textarea class="msg" id="share-msg" rows="4"></textarea></label>
@@ -122,7 +125,9 @@
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <noscript><div class="noscript">البحث وعرض المنتجات يحتاجان إلى تفعيل JavaScript في المتصفح. الكتالوجات متاحة من صفحة «الكتالوجات».</div></noscript>
-<script src="assets/data/site-data.js?v=7a3a2808"></script>
-<script src="assets/js/app.js?v=2fc4e39a"></script>
+<script src="assets/data/site-data.js?v=a7950b1b"></script>
+<script src="assets/js/motion.js?v=aa7f8e3a"></script>
+<script src="assets/js/app.js?v=289e8d70"></script>
+<span id="scripts-ready" hidden></span>
 </body>
 </html>

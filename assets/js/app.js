@@ -1,5 +1,6 @@
-/* HONEY website v2 — vanilla JS, no dependencies. Data: window.HONEY (assets/data/site-data.js, generated).
-   Motion: CSS transitions + Web Animations API only; all of it is skipped when the visitor prefers reduced motion. */
+/* HONEY website v3 — vanilla JS, no dependencies. Data: window.HONEY (assets/data/site-data.js, generated).
+   Motion: CSS + Web Animations API, timings from assets/css/motion.css (read through window.HM from motion.js);
+   all of it is skipped when the visitor prefers reduced motion. */
 (function () {
   "use strict";
   const D = window.HONEY || { products: [], categories: [], catalogs: [], settings: {} };
@@ -15,6 +16,8 @@
   const byOrder = (a, b) => a.order - b.order || a.id.localeCompare(b.id);
   const page = document.body.dataset.page;
   const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const HM = window.HM || { dur: (n, f) => f, ease: () => "ease" };   // motion tokens (motion.js); safe defaults if it is missing
+  const T = (name, f) => HM.dur(name, f);
   const isLocal = location.protocol === "file:" || /^(localhost|127\.|10\.|192\.168\.|\[::1\])/.test(location.hostname);
   const absUrl = (path) => { try { return new URL(path, S.website && S.website.base_url ? S.website.base_url : location.href).href; } catch (e) { return path; } };
   const ICON = (d) => `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
@@ -24,6 +27,8 @@
     book: ICON('<path d="M4.5 5.5A2 2 0 016.5 3.5h12v15h-12a2 2 0 00-2 2zM4.5 20.5v-15M8.5 7.5h6"/>'),
     back: ICON('<path d="M9 6l6 6-6 6"/>'),
     zoom: ICON('<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5"/>'),
+    go: ICON('<path d="M15 6l-6 6 6 6"/>'),
+    check: ICON('<path d="M5 12.5l4.2 4.2L19 7"/>'),
   };
 
   /* ---------- Arabic-aware search normalisation ---------- */
@@ -35,7 +40,14 @@
 
   /* ---------- small helpers ---------- */
   const toastEl = $("#toast"); let toastT;
-  const toast = (msg) => { if (!toastEl) return; toastEl.textContent = msg; toastEl.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove("show"), 2200); };
+  // ok=true shows a small drawn check mark (copied, shared…)
+  const toast = (msg, ok = false) => {
+    if (!toastEl) return;
+    toastEl.classList.remove("show"); void toastEl.offsetWidth;   // restart the spring when a second toast follows
+    toastEl.innerHTML = (ok ? `<span class="tk" aria-hidden="true">${IC.check}</span>` : "") + `<span>${esc(msg)}</span>`;
+    toastEl.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove("show"), 2400);
+  };
+  const done = (btn) => { if (!btn || reduced()) return; btn.classList.remove("is-done"); void btn.offsetWidth; btn.classList.add("is-done"); setTimeout(() => btn.classList.remove("is-done"), 520); };
   const copyText = async (txt) => {
     try { await navigator.clipboard.writeText(txt); return true; } catch (e) {
       const ta = document.createElement("textarea"); ta.value = txt; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
@@ -45,8 +57,15 @@
 
   /* ---------- header, menu, scroll state ---------- */
   const menuBtn = $(".menu-btn"), menu = $("#menu"), header = $(".site-header"), bar = $(".actionbar");
-  const setMenu = (open) => { if (!menuBtn) return; menuBtn.setAttribute("aria-expanded", String(open)); menu.classList.toggle("open", open); };
+  const setMenu = (open) => {
+    if (!menuBtn) return; menuBtn.setAttribute("aria-expanded", String(open)); menu.classList.toggle("open", open);
+    header && header.classList.toggle("menu-open", open && window.innerWidth <= 900);
+  };
   if (menuBtn) menuBtn.addEventListener("click", () => setMenu(menuBtn.getAttribute("aria-expanded") !== "true"));
+  // tapping the dimmed page (the header's backdrop layer) or a link closes the phone menu
+  if (header) header.addEventListener("click", (e) => { if (e.target === header && menu.classList.contains("open")) setMenu(false); });
+  if (menu) menu.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+  window.addEventListener("resize", () => { if (window.innerWidth > 900 && menu && menu.classList.contains("open")) setMenu(false); });
   let lastY = window.scrollY;
   const onScroll = () => {
     const y = window.scrollY;
@@ -99,7 +118,7 @@
   const GRID_SIZES = "(max-width: 640px) 50vw, (max-width: 1200px) 33vw, 300px";
   const card = (p) => `<a class="card" href="product.html?id=${encodeURIComponent(p.id)}" data-id="${esc(p.id)}">
       <div class="ph">${picture(p, GRID_SIZES)}</div>
-      <div class="body"><div><h3>${esc(p.name)}</h3><div class="meta">${esc(catName(p.category))}</div></div>
+      <div class="body"><div><h3>${esc(p.name)}</h3><div class="meta">${esc(catName(p.category))}</div><span class="more" aria-hidden="true">التفاصيل ${IC.go}</span></div>
       <span class="ref" aria-label="الرقم المرجعي">${esc(p.id)}</span></div></a>`;
 
   /* ---------- reveal: only things that start below the fold are hidden, so nothing is ever stuck invisible ---------- */
@@ -108,9 +127,9 @@
     entries.forEach((e) => {
       if (!e.isIntersecting) return;
       const el = e.target; io.unobserve(el);
-      el.style.transitionDelay = Math.min(i++ * 70, 350) + "ms";
+      el.style.transitionDelay = Math.min(i++ * T("--stagger", 55), T("--stagger-max", 330)) + "ms";
       el.classList.add("revealed"); el.classList.remove("will-reveal");
-      setTimeout(() => (el.style.transitionDelay = ""), 1200);
+      setTimeout(() => (el.style.transitionDelay = ""), 1700);
     });
   }, { rootMargin: "0px 0px -6% 0px" }) : null;
   const reveal = (root = document) => {
@@ -137,13 +156,13 @@
     $$("[data-search-open]").forEach((b) => b.setAttribute("aria-expanded", "false"));
     const finish = () => { layer.hidden = true; layer.classList.remove("open", "closing"); document.documentElement.style.overflow = ""; lastFocus && lastFocus.focus(); };
     if (reduced()) return finish();
-    layer.classList.add("closing"); setTimeout(finish, 180);
+    layer.classList.add("closing"); setTimeout(finish, 240);
   };
   const runSearch = () => {
     const q = norm(sq.value);
     if (!q) { sres.innerHTML = ""; shint.textContent = "اكتب اسم صنف أو رقمه المرجعي. اضغط Enter لعرض كل النتائج."; return; }
     const list = D.products.filter((p) => matches(p, q));
-    sres.innerHTML = list.slice(0, 8).map((p) => `<li><a href="product.html?id=${encodeURIComponent(p.id)}"><img src="${p.img.thumb.jpg}" alt="" width="64" height="48" loading="lazy">
+    sres.innerHTML = list.slice(0, 8).map((p, n) => `<li style="--i:${n}"><a href="product.html?id=${encodeURIComponent(p.id)}"><img src="${p.img.thumb.jpg}" alt="" width="64" height="48" loading="lazy">
       <span><b>${esc(p.name)}</b><small>${esc(catName(p.category))} · <span class="ltr">${esc(p.id)}</span></small></span></a></li>`).join("");
     shint.textContent = list.length ? (list.length > 8 ? `${list.length} نتيجة — اضغط Enter لعرضها كلها.` : `${list.length} نتيجة`) : "لا توجد نتائج مطابقة. جرّب كلمة أخرى.";
   };
@@ -184,7 +203,12 @@
     sheet.classList.add("open"); sheet.setAttribute("aria-hidden", "false");
     lastFocus = document.activeElement; setTimeout(() => (snative.hidden ? swa : snative).focus(), 30);
   };
-  const closeSheet = () => { sheet.classList.remove("open"); sheet.setAttribute("aria-hidden", "true"); lastFocus && lastFocus.focus(); };
+  const closeSheet = () => {
+    if (!sheet.classList.contains("open") || sheet.classList.contains("closing")) return;
+    const finish = () => { sheet.classList.remove("open", "closing"); sheet.setAttribute("aria-hidden", "true"); lastFocus && lastFocus.focus(); };
+    if (reduced()) return finish();
+    sheet.classList.add("closing"); setTimeout(finish, T("--d-base", 280));
+  };
   const nativeShare = async (ctx, msgText) => {
     // a catalog is shared as the PDF file itself when the device allows it (WhatsApp then receives the file)
     if (ctx.file && navigator.canShare) {
@@ -200,11 +224,11 @@
     $$("[data-sheet-close]", sheet).forEach((b) => b.addEventListener("click", closeSheet));
     sheet.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSheet(); });
     snative.addEventListener("click", async () => {
-      snative.setAttribute("aria-busy", "true");
+      snative.setAttribute("aria-busy", "true");   // a catalog PDF can take a few seconds to prepare: show a spinner meanwhile
       const ok = await nativeShare(shareCtx, smsg.value); snative.removeAttribute("aria-busy");
       if (!ok) toast("تعذّرت المشاركة من هذا المتصفح، استخدم واتساب أو النسخ.");
     });
-    $("[data-share-copy]", sheet).addEventListener("click", async () => toast((await copyText(smsg.value)) ? "تم نسخ الرسالة" : "تعذّر النسخ"));
+    $("[data-share-copy]", sheet).addEventListener("click", async (e) => { const ok = await copyText(smsg.value); toast(ok ? "تم نسخ الرسالة" : "تعذّر النسخ", ok); ok && done(e.currentTarget); });
   }
   const share = (ctx) => openSheet(ctx);
   const shareCatalog = (id) => {
@@ -215,12 +239,16 @@
   };
   document.addEventListener("click", async (e) => {
     const sc = e.target.closest("[data-share-catalog]"); if (sc) { e.preventDefault(); shareCatalog(sc.dataset.shareCatalog); return; }
-    const cp = e.target.closest("[data-copy]"); if (cp) { toast((await copyText(cp.dataset.copy)) ? "تم نسخ الرقم" : "تعذّر النسخ"); return; }
+    const cp = e.target.closest("[data-copy]"); if (cp) { const ok = await copyText(cp.dataset.copy); toast(ok ? "تم نسخ الرقم" : "تعذّر النسخ", ok); ok && done(cp); return; }
     const cf = e.target.closest("[data-copy-from]");
     if (cf) {
       const k = D.catalogs.find((x) => x.main); const txt = $("#" + cf.dataset.copyFrom).value.trim() + (k ? "\n" + absUrl(catHref(k)) : "");
-      toast((await copyText(txt)) ? "تم نسخ الرسالة مع الرابط" : "تعذّر النسخ");
+      const ok = await copyText(txt); toast(ok ? "تم نسخ الرسالة مع الرابط" : "تعذّر النسخ", ok); ok && done(cf);
+      return;
     }
+    // «عرض» a catalog: a quick press response while the PDF opens in a new tab
+    const view = e.target.closest('a.btn[target="_blank"][href*=".pdf"]');
+    if (view && !reduced()) { view.classList.add("opening"); setTimeout(() => view.classList.remove("opening"), 400); }
   });
 
   /* ---------- remember the last product listing for «العودة إلى النتائج» ---------- */
@@ -275,12 +303,12 @@
         // cancellable cross-fade: a new filter interrupts the running one instead of queueing behind it
         anims.forEach((a) => a.cancel()); anims = [];
         if (!animate || reduced() || !grid.animate) { draw(list); return; }
-        const out = grid.animate([{ opacity: 1 }, { opacity: 0, transform: "translateY(6px)" }], { duration: 120, easing: "ease-in", fill: "forwards" });
+        const out = grid.animate([{ opacity: 1 }, { opacity: 0, transform: "translateY(6px)" }], { duration: 160, easing: HM.ease("--ease-exit"), fill: "forwards" });
         anims.push(out);
         out.onfinish = () => {
           draw(list); out.cancel();
-          $$(".card", grid).slice(0, 12).forEach((el, i) => anims.push(el.animate([{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "none" }],
-            { duration: 320, delay: i * 35, easing: "cubic-bezier(.22,.8,.24,1)", fill: "backwards" })));
+          $$(".card", grid).slice(0, 12).forEach((el, i) => anims.push(el.animate([{ opacity: 0, transform: "translateY(14px) scale(.98)" }, { opacity: 1, transform: "none" }],
+            { duration: T("--d-gentle", 480), delay: i * 48, easing: HM.ease("--ease-honey"), fill: "backwards" })));
         };
       };
       let t; input.addEventListener("input", () => { clearTimeout(t); t = setTimeout(() => { state.q = input.value; render(true); }, 140); });
@@ -354,6 +382,7 @@
             </div>
           </div>
         </div>`;
+      $$(".detail .info > *", root).forEach((el, n) => el.style.setProperty("--i", n));
       $("[data-share-product]", root).addEventListener("click", () =>
         share({ title: `مشاركة ${p.name}`, text: `${p.name} (${p.id}) من حلويات HONEY:`, url: absUrl("product.html?id=" + encodeURIComponent(p.id)) }));
       const rel = same.slice(i + 1).concat(same.slice(0, i)).slice(0, 4);
@@ -361,20 +390,67 @@
       $("#related-more").href = "products.html?cat=" + encodeURIComponent(p.category);
       $("#related-more").textContent = "كل أصناف " + c.name_ar;
       const lb = $("#lightbox"), lbImg = $("img", lb), zoom = $(".zoom", root);
+      const lbClose = $(".lb-close", lb) || $("button", lb), lbPrev = $(".lb-prev", lb), lbNext = $(".lb-next", lb);
       let cur = 0;
-      $$("[data-shot]", root).forEach((b) => b.addEventListener("click", () => {
-        cur = +b.dataset.shot; const g = shots[cur];
-        zoom.innerHTML = pictureSet(g, p.name, "(max-width: 900px) 100vw, 58vw", true, true) + `<span class="hint">${IC.zoom} تكبير</span>`;
-        $$("[data-shot]", root).forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
-      }));
-      const open = () => {
-        lbImg.src = shots[cur].web.jpg; lbImg.alt = p.name; $("figcaption", lb).textContent = `${p.name} · ${p.id}`;
-        lb.classList.add("open"); $("button", lb).focus(); document.documentElement.style.overflow = "hidden";
+      const hint = `<span class="hint glass-dark">${IC.zoom} تكبير</span>`;
+      const zh = $(".hint", zoom); if (zh) zh.classList.add("glass-dark");
+      // gallery: the new photo fades in over the old one instead of jumping
+      const show = (n) => {
+        cur = (n + shots.length) % shots.length; const g = shots[cur];
+        zoom.innerHTML = pictureSet(g, p.name, "(max-width: 900px) 100vw, 58vw", true, true) + hint;
+        if (!reduced()) $("picture", zoom).classList.add("swap");
+        $$("[data-shot]", root).forEach((x) => x.setAttribute("aria-pressed", String(+x.dataset.shot === cur)));
       };
-      const close = () => { lb.classList.remove("open"); document.documentElement.style.overflow = ""; zoom.focus(); };
+      $$("[data-shot]", root).forEach((b) => b.addEventListener("click", () => show(+b.dataset.shot)));
+      // desktop: the photo enlarges around the pointer (see .zoom in site.css)
+      zoom.addEventListener("pointermove", (e) => {
+        if (e.pointerType !== "mouse") return;
+        const r = zoom.getBoundingClientRect();
+        zoom.style.setProperty("--ox", ((e.clientX - r.left) / r.width * 100).toFixed(1) + "%");
+        zoom.style.setProperty("--oy", ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%");
+      }, { passive: true });
+      // full view: the photo grows out of its place on the page; arrows/swipe move through the gallery
+      const lbSet = (animate) => {
+        lbImg.src = shots[cur].web.jpg; lbImg.alt = p.name; $("figcaption", lb).textContent = `${p.name} · ${p.id}` + (shots.length > 1 ? ` · ${cur + 1}/${shots.length}` : "");
+        if (animate && !reduced()) { lbImg.classList.remove("swap"); void lbImg.offsetWidth; lbImg.classList.add("swap"); }
+      };
+      const open = () => {
+        lbSet(false);
+        lb.classList.remove("closing"); lb.classList.add("open"); lbClose.focus(); document.documentElement.style.overflow = "hidden";
+        if (lbPrev) lbPrev.hidden = lbNext.hidden = shots.length < 2;
+        const from = $("img", zoom);
+        if (!reduced() && from && lbImg.animate) {
+          const go = () => {
+            const a = from.getBoundingClientRect(), b = lbImg.getBoundingClientRect(); if (!b.width) return;
+            lbImg.animate([{ transform: `translate(${a.left + a.width / 2 - (b.left + b.width / 2)}px, ${a.top + a.height / 2 - (b.top + b.height / 2)}px) scale(${a.width / b.width})`, opacity: .6, borderRadius: "22px" },
+                           { transform: "none", opacity: 1, borderRadius: "14px" }], { duration: T("--d-gentle", 480), easing: HM.ease("--ease-honey") });
+          };
+          lbImg.complete && lbImg.naturalWidth ? go() : lbImg.addEventListener("load", go, { once: true });
+        }
+      };
+      const close = () => {
+        if (!lb.classList.contains("open")) return;
+        const finish = () => { lb.classList.remove("open", "closing"); document.documentElement.style.overflow = ""; zoom.focus(); };
+        if (reduced()) return finish();
+        lb.classList.add("closing"); setTimeout(finish, T("--d-base", 280));
+      };
       zoom.addEventListener("click", open);
-      lb.addEventListener("click", (e) => { if (e.target === lb || e.target.closest("button")) close(); });
-      document.addEventListener("keydown", (e) => { if (e.key === "Escape" && lb.classList.contains("open")) close(); });
+      lb.addEventListener("click", (e) => {
+        if (e.target.closest(".lb-prev")) { show(cur - 1); lbSet(true); return; }   // RTL: «السابق» sits on the right
+        if (e.target.closest(".lb-next")) { show(cur + 1); lbSet(true); return; }
+        if (e.target === lb || e.target.closest(".lb-close")) close();
+      });
+      let sx = null;
+      lb.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; }, { passive: true });
+      lb.addEventListener("touchend", (e) => {
+        if (sx === null || shots.length < 2) return; const dx = e.changedTouches[0].clientX - sx; sx = null;
+        if (Math.abs(dx) > 50) { show(cur + (dx > 0 ? 1 : -1)); lbSet(true); }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (!lb.classList.contains("open")) return;
+        if (e.key === "Escape") close();
+        if (shots.length > 1 && (e.key === "ArrowLeft" || e.key === "ArrowRight")) { show(cur + (e.key === "ArrowLeft" ? 1 : -1)); lbSet(true); }
+      });
     },
 
     catalogs() { const n = $("#local-note"); if (n) n.hidden = !isLocal; },

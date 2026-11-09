@@ -13,15 +13,17 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/brand/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/brand/favicon-180.png">
 <link rel="stylesheet" href="assets/css/tokens.css?v=f843d0a6">
-<link rel="stylesheet" href="assets/css/site.css?v=1a50e3e5">
+<link rel="stylesheet" href="assets/css/motion.css?v=0443c3ec">
+<link rel="stylesheet" href="assets/css/site.css?v=caecd503">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body data-page="404">
 <a class="skip" href="#main">تخطَّ إلى المحتوى</a>
 <header class="site-header">
+  <span class="nav-glass" aria-hidden="true"></span>
   <div class="wrap nav">
     <a class="brand" href="index.html" aria-label="HONEY — الصفحة الرئيسية"><img src="assets/img/brand/honey-logo-horizontal.svg" alt="HONEY" width="250" height="78"></a>
-    <ul class="menu" id="menu"><li><a href="index.html">الرئيسية</a></li><li><a href="products.html">المنتجات</a></li><li><a href="catalogs.html">الكتالوجات</a></li><li><a href="about.html">عن HONEY</a></li><li><a href="contact.html">تواصل معنا</a></li></ul>
+    <ul class="menu" id="menu"><li style="--i:0"><a href="index.html">الرئيسية</a></li><li style="--i:1"><a href="products.html">المنتجات</a></li><li style="--i:2"><a href="catalogs.html">الكتالوجات</a></li><li style="--i:3"><a href="about.html">عن HONEY</a></li><li style="--i:4"><a href="contact.html">تواصل معنا</a></li></ul>
     <div class="nav-actions">
       <button class="icon-btn" type="button" data-search-open aria-label="بحث عن منتج" aria-controls="search-layer" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></button>
       <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="القائمة"><span></span></button>
@@ -30,7 +32,7 @@
 </header>
 <div class="search-layer" id="search-layer" hidden>
   <div class="search-backdrop" data-search-close></div>
-  <div class="search-panel" role="dialog" aria-modal="true" aria-label="بحث في المنتجات">
+  <div class="search-panel glass" role="dialog" aria-modal="true" aria-label="بحث في المنتجات">
     <div class="wrap">
       <form class="search-row" action="products.html" role="search">
         <label class="search-field"><span class="sr-only">اسم الصنف أو رقمه المرجعي</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>
@@ -59,6 +61,7 @@
 <div class="sheet" id="share-sheet" aria-hidden="true">
   <div class="backdrop" data-sheet-close></div>
   <div class="panel" role="dialog" aria-modal="true" aria-labelledby="share-title">
+    <span class="grab" aria-hidden="true"></span>
     <button class="icon-btn close" type="button" data-sheet-close aria-label="إغلاق"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <h2 id="share-title">مشاركة</h2>
     <label><span class="sr-only">نص الرسالة</span><textarea class="msg" id="share-msg" rows="4"></textarea></label>
@@ -72,7 +75,9 @@
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <noscript><div class="noscript">البحث وعرض المنتجات يحتاجان إلى تفعيل JavaScript في المتصفح. الكتالوجات متاحة من صفحة «الكتالوجات».</div></noscript>
-<script src="assets/data/site-data.js?v=7a3a2808"></script>
-<script src="assets/js/app.js?v=2fc4e39a"></script>
+<script src="assets/data/site-data.js?v=a7950b1b"></script>
+<script src="assets/js/motion.js?v=aa7f8e3a"></script>
+<script src="assets/js/app.js?v=289e8d70"></script>
+<span id="scripts-ready" hidden></span>
 </body>
 </html>
