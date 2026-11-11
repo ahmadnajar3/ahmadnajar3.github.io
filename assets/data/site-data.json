@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11 11:21",
+ "generated": "2026-11-11 11:29",
  "brand": {
   "name": "Honey",
   "name_caps": "HONEY",
@@ -110,7 +110,7 @@
    "name_en": "",
    "sort": 4,
    "description": "جميع انوع الراحة",
-   "count": 11,
+   "count": 18,
    "cover": "SEC-008",
    "catalog": null
   }
@@ -1738,6 +1738,167 @@
      "jpg": "assets/img/products/web/SEC-012.jpg",
      "webp": "assets/img/products/web/SEC-012.webp",
      "avif": "assets/img/products/web/SEC-012.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "SEC-013",
+   "name": "هريسة لوز فواكه",
+   "name_en": null,
+   "category": "section-4",
+   "order": 13,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/SEC-013.jpg",
+     "webp": "assets/img/products/thumb/SEC-013.webp",
+     "avif": "assets/img/products/thumb/SEC-013.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/SEC-013.jpg",
+     "webp": "assets/img/products/web/SEC-013.webp",
+     "avif": "assets/img/products/web/SEC-013.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "SEC-014",
+   "name": "هريسة لوز سوارة",
+   "name_en": null,
+   "category": "section-4",
+   "order": 14,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/SEC-014.jpg",
+     "webp": "assets/img/products/thumb/SEC-014.webp",
+     "avif": "assets/img/products/thumb/SEC-014.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/SEC-014.jpg",
+     "webp": "assets/img/products/web/SEC-014.webp",
+     "avif": "assets/img/products/web/SEC-014.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "SEC-015",
+   "name": "هربسة لوز كروصان",
+   "name_en": null,
+   "category": "section-4",
+   "order": 15,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/SEC-015.jpg",
+     "webp": "assets/img/products/thumb/SEC-015.webp",
+     "avif": "assets/img/products/thumb/SEC-015.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/SEC-015.jpg",
+     "webp": "assets/img/products/web/SEC-015.webp",
+     "avif": "assets/img/products/web/SEC-015.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "SEC-016",
+   "name": "هريسة لوز فواكه",
+   "name_en": null,
+   "category": "section-4",
+   "order": 16,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/SEC-016.jpg",
+     "webp": "assets/img/products/thumb/SEC-016.webp",
+     "avif": "assets/img/products/thumb/SEC-016.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/SEC-016.jpg",
+     "webp": "assets/img/products/web/SEC-016.webp",
+     "avif": "assets/img/products/web/SEC-016.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "SEC-017",
+   "name": "هريسة لوز فواكه",
+   "name_en": null,
+   "category": "section-4",
+   "order": 17,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/SEC-017.jpg",
+     "webp": "assets/img/products/thumb/SEC-017.webp",
+     "avif": "assets/img/products/thumb/SEC-017.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/SEC-017.jpg",
+     "webp": "assets/img/products/web/SEC-017.webp",
+     "avif": "assets/img/products/web/SEC-017.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "SEC-018",
+   "name": "هريسة لوز فواكه",
+   "name_en": null,
+   "category": "section-4",
+   "order": 18,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/SEC-018.jpg",
+     "webp": "assets/img/products/thumb/SEC-018.webp",
+     "avif": "assets/img/products/thumb/SEC-018.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/SEC-018.jpg",
+     "webp": "assets/img/products/web/SEC-018.webp",
+     "avif": "assets/img/products/web/SEC-018.avif"
+    }
+   },
+   "gallery": [],
+   "fields": {},
+   "extra": []
+  },
+  {
+   "id": "SEC-019",
+   "name": "هريسة لوز فواكه",
+   "name_en": null,
+   "category": "section-4",
+   "order": 19,
+   "featured": false,
+   "img": {
+    "thumb": {
+     "jpg": "assets/img/products/thumb/SEC-019.jpg",
+     "webp": "assets/img/products/thumb/SEC-019.webp",
+     "avif": "assets/img/products/thumb/SEC-019.avif"
+    },
+    "web": {
+     "jpg": "assets/img/products/web/SEC-019.jpg",
+     "webp": "assets/img/products/web/SEC-019.webp",
+     "avif": "assets/img/products/web/SEC-019.avif"
     }
    },
    "gallery": [],
