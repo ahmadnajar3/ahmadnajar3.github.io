@@ -4,7 +4,9 @@
    window.HM from this file.
 
    What it does
-   - logo intro on the first page of a visit
+   - brand curtain on the first page of a visit (pure CSS, set up by the inline script in <head>)
+   - header colour follows the chapter under it (dark cinematic sections / light pages)
+   - custom cursor and magnetic buttons (mouse only), 3D tilt + light on product cards
    - glass pill that follows the pointer in the desktop menu
    - soft light that follows the pointer on cards and glass ([data-glow]); hero photos tilt toward the pointer
    - catalog covers tilt like a booklet
@@ -30,12 +32,18 @@
   const rafThrottle = (fn) => { let q = null, a; return (...args) => { a = args; if (q) return; q = requestAnimationFrame(() => { q = null; fn(...a); }); }; };
   window.HM = { reduced, fine, dur, ease };
 
-  /* ---------- logo intro: first page of the visit only, never blocks anything ---------- */
+  /* ---------- header: light text over dark chapters, dark text over light pages ---------- */
   const header = $(".site-header");
-  if (header && !reduced() && !store.get("honey:intro")) {
-    store.set("honey:intro", "1");
-    header.classList.add("intro");
-    setTimeout(() => header.classList.remove("intro"), 2500);
+  if (header) {
+    const darks = $$('[data-tone="dark"]').filter((el) => !header.contains(el));
+    const tone = () => {
+      const y = (header.querySelector(".nav") || header).getBoundingClientRect().height / 2;
+      const over = darks.some((el) => { const r = el.getBoundingClientRect(); return r.top <= y && r.bottom >= y; });
+      header.classList.toggle("on-light", !over);
+    };
+    window.addEventListener("scroll", rafThrottle(tone), { passive: true });
+    window.addEventListener("resize", rafThrottle(tone));
+    tone();
   }
 
   /* ---------- desktop menu: a glass pill glides under the pointer and rests on the current page ---------- */
@@ -71,9 +79,14 @@
     const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
     el.style.setProperty("--gx", (x * 100).toFixed(1) + "%");
     el.style.setProperty("--gy", (y * 100).toFixed(1) + "%");
-    if (el.classList.contains("card")) { // the photo leans very slightly toward the pointer
+    if (el.classList.contains("card")) { // the photo leans toward the pointer and the frame tilts (max 3°)
+      const ph = el.querySelector(".ph"); if (!ph) return;
+      const rr = ph.getBoundingClientRect(), px = (e.clientX - rr.left) / rr.width, py = (e.clientY - rr.top) / rr.height;
+      ph.style.setProperty("--gx", (px * 100).toFixed(1) + "%"); ph.style.setProperty("--gy", (py * 100).toFixed(1) + "%");
       el.style.setProperty("--px", ((x - .5) * -8).toFixed(1) + "px");
       el.style.setProperty("--py", ((y - .5) * -6).toFixed(1) + "px");
+      ph.style.setProperty("--rx", ((px - .5) * 5).toFixed(2) + "deg");
+      ph.style.setProperty("--ry", ((.5 - py) * 4).toFixed(2) + "deg");
     }
   });
   document.addEventListener("pointermove", (e) => {
@@ -81,6 +94,72 @@
     const el = e.target.closest && e.target.closest(".card, [data-glow]");
     if (el) light(el, e);
   }, { passive: true });
+  document.addEventListener("pointerout", (e) => {
+    const el = e.target.closest && e.target.closest(".card");
+    if (!el || el.contains(e.relatedTarget)) return;
+    const ph = el.querySelector(".ph"); if (ph) { ph.style.setProperty("--rx", "0deg"); ph.style.setProperty("--ry", "0deg"); }
+    el.style.setProperty("--px", "0px"); el.style.setProperty("--py", "0px");
+  });
+
+  /* ---------- custom cursor (mouse only): a soft ring that follows the real pointer, which stays visible ----------
+     It grows into a lens («استكشف») over products, says «اسحب» over the lookbook strip and shrinks to a dot on links. */
+  if (fine() && !reduced()) {
+    const cur = document.createElement("div");
+    cur.className = "cursor"; cur.setAttribute("aria-hidden", "true"); cur.innerHTML = "<span></span>";
+    document.body.appendChild(cur);
+    const label = cur.firstChild;
+    let tx = -100, ty = -100, cx = -100, cy = -100, raf = null;
+    const loop = () => {
+      cx += (tx - cx) * .28; cy += (ty - cy) * .28;
+      cur.style.setProperty("--cx", cx.toFixed(1) + "px"); cur.style.setProperty("--cy", cy.toFixed(1) + "px");
+      raf = Math.abs(tx - cx) + Math.abs(ty - cy) > .3 ? requestAnimationFrame(loop) : null;
+    };
+    const state = (t) => {
+      const view = t.closest("a.card, .cat, .zoom"), strip = t.closest(".strip"), link = t.closest("a, button, select, input, textarea, label");
+      const txt = view ? (view.classList.contains("zoom") ? "تكبير" : "استكشف") : strip ? "اسحب" : "";
+      cur.classList.toggle("is-view", !!txt); cur.classList.toggle("is-link", !txt && !!link);
+      if (txt && label.textContent !== txt) label.textContent = txt;
+    };
+    document.addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      tx = e.clientX; ty = e.clientY; cur.classList.add("on");
+      if (!raf) raf = requestAnimationFrame(loop);
+      state(e.target);
+    }, { passive: true });
+    document.addEventListener("pointerdown", () => cur.classList.add("is-down"));
+    document.addEventListener("pointerup", () => cur.classList.remove("is-down"));
+    document.documentElement.addEventListener("pointerleave", () => cur.classList.remove("on"));
+  }
+
+  /* ---------- magnetic controls (mouse only): primary buttons lean a few pixels toward the pointer ---------- */
+  if (fine() && !reduced()) {
+    const pull = rafThrottle((el, e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty("--mx", (((e.clientX - r.left) / r.width - .5) * 8).toFixed(1) + "px");
+      el.style.setProperty("--my", (((e.clientY - r.top) / r.height - .5) * 6).toFixed(1) + "px");
+    });
+    document.addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      const el = e.target.closest && e.target.closest(".btn, .icon-btn, .to-top");
+      if (el && !el.closest(".actionbar, .sheet, .toolbar")) pull(el, e);
+    }, { passive: true });
+    document.addEventListener("pointerout", (e) => {
+      const el = e.target.closest && e.target.closest(".btn, .icon-btn, .to-top");
+      if (el && !el.contains(e.relatedTarget)) { el.style.setProperty("--mx", "0px"); el.style.setProperty("--my", "0px"); }
+    });
+  }
+
+  /* ---------- marquee without scroll-driven animations: a light JS version of the same scroll link ---------- */
+  const mqTrack = $(".marquee .track");
+  if (mqTrack && !reduced() && !(window.CSS && CSS.supports && CSS.supports("animation-timeline: view()"))) {
+    const move = rafThrottle(() => {
+      const r = mqTrack.parentElement.getBoundingClientRect(), vh = window.innerHeight;
+      if (r.bottom < 0 || r.top > vh) return;
+      const k = 1 - (r.top + r.height) / (vh + r.height);
+      mqTrack.style.setProperty("--mq", (18 - 24 * k).toFixed(2) + "%");
+    });
+    window.addEventListener("scroll", move, { passive: true }); move();
+  }
 
   /* hero: the photo composition tilts toward the pointer (max 3°); the warm glow pauses when the hero is off screen */
   const hero = $(".hero"), art = $(".hero-art");

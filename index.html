@@ -5,38 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>حلويات HONEY — شوكولا ومعجنات وحلو عربي</title>
 <meta name="description" content="حلويات HONEY في إدلب: 75 صنفاً من الشوكولا والمعجنات والحلو العربي بصورها الحقيقية، مع كتالوج PDF للمشاركة.">
-<meta name="theme-color" content="#FAF6EF">
+<meta name="theme-color" content="#3B2218">
+<meta name="color-scheme" content="light">
 <meta property="og:title" content="حلويات HONEY — شوكولا ومعجنات وحلو عربي">
 <meta property="og:description" content="حلويات HONEY في إدلب: 75 صنفاً من الشوكولا والمعجنات والحلو العربي بصورها الحقيقية، مع كتالوج PDF للمشاركة.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_SY">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/brand/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/brand/favicon-180.png">
+<link rel="preload" href="assets/fonts/amiri-700.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="assets/css/tokens.css?v=f843d0a6">
 <link rel="stylesheet" href="assets/css/motion.css?v=0443c3ec">
-<link rel="stylesheet" href="assets/css/site.css?v=caecd503">
-<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="assets/css/site.css?v=6da26078">
+<script>(function(d){d.classList.add("js");try{if(!sessionStorage.getItem("honey:intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("curtain");sessionStorage.setItem("honey:intro","1")}}catch(e){}})(document.documentElement)</script>
 </head>
 <body data-page="home">
 <a class="skip" href="#main">تخطَّ إلى المحتوى</a>
 <header class="site-header">
   <span class="nav-glass" aria-hidden="true"></span>
+  <span class="progress" aria-hidden="true"></span>
   <div class="wrap nav">
-    <a class="brand" href="index.html" aria-label="HONEY — الصفحة الرئيسية"><img src="assets/img/brand/honey-logo-horizontal.svg" alt="HONEY" width="250" height="78"></a>
-    <ul class="menu" id="menu"><li style="--i:0"><a href="index.html" aria-current="page">الرئيسية</a></li><li style="--i:1"><a href="products.html">المنتجات</a></li><li style="--i:2"><a href="catalogs.html">الكتالوجات</a></li><li style="--i:3"><a href="about.html">عن HONEY</a></li><li style="--i:4"><a href="contact.html">تواصل معنا</a></li></ul>
+    <a class="brand" href="index.html" aria-label="HONEY — الصفحة الرئيسية">
+      <img class="logo-dark" src="assets/img/brand/honey-logo-horizontal.svg" alt="HONEY" width="250" height="78">
+      <img class="logo-light" src="assets/img/brand/honey-logo-horizontal-reversed.svg" alt="" width="250" height="78" aria-hidden="true">
+    </a>
+    <nav class="site-index" id="site-index" aria-label="القائمة الرئيسية">
+      <ul class="menu" id="menu"><li style="--i:0"><a href="index.html" aria-current="page"><span class="n" aria-hidden="true">01</span>الرئيسية</a></li><li style="--i:1"><a href="products.html"><span class="n" aria-hidden="true">02</span>المنتجات</a></li><li style="--i:2"><a href="catalogs.html"><span class="n" aria-hidden="true">03</span>الكتالوجات</a></li><li style="--i:3"><a href="about.html"><span class="n" aria-hidden="true">04</span>عن HONEY</a></li><li style="--i:4"><a href="contact.html"><span class="n" aria-hidden="true">05</span>تواصل معنا</a></li></ul>
+      <div class="index-extra">
+        <p class="index-label">الأقسام</p>
+        <ul class="index-secs"><li><a href="products.html?cat=chocolate">الشوكولا<small>31</small></a></li><li><a href="products.html?cat=pastries">المعجنات<small>9</small></a></li><li><a href="products.html?cat=arabic-sweets">الحلو العربي<small>17</small></a></li><li><a href="products.html?cat=section-4">ضيافة<small>18</small></a></li></ul>
+        <a class="index-phone" href="tel:+963941536702"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 3.5h2.6l1.5 4-2 1.3a11 11 0 006.5 6.5l1.3-2 4 1.5v2.6a2 2 0 01-2.2 2A16.5 16.5 0 014.6 5.7a2 2 0 012-2.2z"/></svg><span class="ltr">0941536702</span></a>
+      </div>
+    </nav>
     <div class="nav-actions">
       <button class="icon-btn" type="button" data-search-open aria-label="بحث عن منتج" aria-controls="search-layer" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></button>
-      <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="القائمة"><span></span></button>
+      <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="site-index" aria-label="القائمة"><span></span></button>
     </div>
   </div>
 </header>
 <div class="search-layer" id="search-layer" hidden>
   <div class="search-backdrop" data-search-close></div>
-  <div class="search-panel glass" role="dialog" aria-modal="true" aria-label="بحث في المنتجات">
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="بحث في المنتجات">
     <div class="wrap">
+      <p class="search-kicker">ابحث في مجموعات HONEY</p>
       <form class="search-row" action="products.html" role="search">
         <label class="search-field"><span class="sr-only">اسم الصنف أو رقمه المرجعي</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>
-          <input id="sq" name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="ابحث باسم الصنف أو رقمه، مثل: معمول أو ARAB-004"></label>
+          <input id="sq" name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="اسم الصنف أو رقمه، مثل: معمول أو ARAB-004"></label>
         <button class="icon-btn" type="button" data-search-close aria-label="إغلاق البحث"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       </form>
       <ul class="search-results" id="search-results" aria-live="polite"></ul>
@@ -45,72 +59,94 @@
   </div>
 </div>
 <main id="main">
-<section class="hero">
+<section class="hero" data-tone="dark">
+  <div class="hero-bg" aria-hidden="true"><span class="glow"></span><span class="glow g2"></span><span class="grain"></span></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="overline">حلويات HONEY · إدلب</span>
       <h1 class="h-display"><span class="w" style="--i:0">حلو</span> <span class="w" style="--i:1">يُقَدم</span> <em><span class="w" style="--i:2">بدفء</span></em><br><span class="w" style="--i:3">ويُختار</span> <span class="w" style="--i:4">بعناية</span></h1>
       <p class="lead">شوكولا ومعجنات وحلو عربي من HONEY، معروضة بصورها الحقيقية مع رقم مرجعي لكل صنف ليسهل الطلب.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="products.html">استكشف المنتجات <svg class="icon go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a>
+        <a class="btn btn-gold" href="products.html">استكشف المنتجات <svg class="icon go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a>
         <a class="btn btn-ghost" href="catalogs.html"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 5.5A2 2 0 016.5 3.5h12v15h-12a2 2 0 00-2 2zM4.5 20.5v-15M8.5 7.5h6"/></svg> الكتالوج الإلكتروني</a>
       </div>
     </div>
     <div class="hero-art" aria-hidden="true">
-      <span class="ring"></span>
-      <figure class="a"><picture><source type="image/avif" srcset="assets/img/products/thumb/ARAB-012.avif 640w, assets/img/products/web/ARAB-012.avif 1600w" sizes="(max-width: 900px) 90vw, 45vw"><source type="image/webp" srcset="assets/img/products/thumb/ARAB-012.webp 640w, assets/img/products/web/ARAB-012.webp 1600w" sizes="(max-width: 900px) 90vw, 45vw"><img src="assets/img/products/web/ARAB-012.jpg" alt="ميديا" width="1600" height="1200" fetchpriority="high" decoding="async"></picture></figure>
-      <figure class="b"><picture><source type="image/avif" srcset="assets/img/products/thumb/PAST-004.avif 640w, assets/img/products/web/PAST-004.avif 1600w" sizes="(max-width: 900px) 40vw, 22vw"><source type="image/webp" srcset="assets/img/products/thumb/PAST-004.webp 640w, assets/img/products/web/PAST-004.webp 1600w" sizes="(max-width: 900px) 40vw, 22vw"><img src="assets/img/products/thumb/PAST-004.jpg" alt="سنيورة" width="1600" height="1200" loading="lazy" decoding="async"></picture></figure>
-      <figure class="c"><picture><source type="image/avif" srcset="assets/img/products/thumb/CHOC-008.avif 640w, assets/img/products/web/CHOC-008.avif 1600w" sizes="(max-width: 900px) 30vw, 16vw"><source type="image/webp" srcset="assets/img/products/thumb/CHOC-008.webp 640w, assets/img/products/web/CHOC-008.webp 1600w" sizes="(max-width: 900px) 30vw, 16vw"><img src="assets/img/products/thumb/CHOC-008.jpg" alt="شوكولا كريمة لوز" width="1600" height="1200" loading="lazy" decoding="async"></picture></figure>
+      <span class="ring"></span><span class="ring r2"></span>
+      <figure class="a"><span class="frame"><picture><source type="image/avif" srcset="assets/img/products/thumb/ARAB-012.avif 640w, assets/img/products/web/ARAB-012.avif 1600w" sizes="(max-width: 900px) 86vw, 44vw"><source type="image/webp" srcset="assets/img/products/thumb/ARAB-012.webp 640w, assets/img/products/web/ARAB-012.webp 1600w" sizes="(max-width: 900px) 86vw, 44vw"><img src="assets/img/products/web/ARAB-012.jpg" alt="ميديا" width="1600" height="1200" fetchpriority="high" decoding="async"></picture></span></figure>
+      <figure class="b"><span class="frame"><picture><source type="image/avif" srcset="assets/img/products/thumb/PAST-004.avif 640w, assets/img/products/web/PAST-004.avif 1600w" sizes="(max-width: 900px) 40vw, 20vw"><source type="image/webp" srcset="assets/img/products/thumb/PAST-004.webp 640w, assets/img/products/web/PAST-004.webp 1600w" sizes="(max-width: 900px) 40vw, 20vw"><img src="assets/img/products/thumb/PAST-004.jpg" alt="سنيورة" width="1600" height="1200" loading="lazy" decoding="async"></picture></span></figure>
+      <figure class="c"><span class="frame"><picture><source type="image/avif" srcset="assets/img/products/thumb/CHOC-008.avif 640w, assets/img/products/web/CHOC-008.avif 1600w" sizes="(max-width: 900px) 32vw, 15vw"><source type="image/webp" srcset="assets/img/products/thumb/CHOC-008.webp 640w, assets/img/products/web/CHOC-008.webp 1600w" sizes="(max-width: 900px) 32vw, 15vw"><img src="assets/img/products/thumb/CHOC-008.jpg" alt="شوكولا كريمة لوز" width="1600" height="1200" loading="lazy" decoding="async"></picture></span></figure>
     </div>
   </div>
+  <a class="scroll-cue" href="#collections"><span>اكتشف المجموعات</span><span class="cue-line" aria-hidden="true"></span></a>
 </section>
-<section class="facts" aria-label="أرقام سريعة"><div class="wrap"><ul>
-  <li><b data-count="75">75</b><span>صنفاً معروضاً</span></li>
-  <li><b data-count="4">4</b><span>أقسام: شوكولا، معجنات، حلو عربي</span></li>
-  <li><b data-count="5">5</b><span>كتالوجات PDF للمشاركة</span></li>
-</ul></div></section>
-<section class="section"><div class="wrap">
-  <div class="section-head"><div><span class="overline">الأقسام</span><h2 class="h-section" data-reveal="mask">تسوّق حسب القسم</h2></div><a class="link-more" href="products.html">كل المنتجات</a></div>
+<div class="marquee" aria-hidden="true"><div class="track"><span>الشوكولا</span><i aria-hidden="true">✦</i><span>المعجنات</span><i aria-hidden="true">✦</i><span>الحلو العربي</span><i aria-hidden="true">✦</i><span>ضيافة</span><i aria-hidden="true">✦</i><span>HONEY</span><i aria-hidden="true">✦</i><span class="latin">Chocolate</span><i aria-hidden="true">✦</i><span class="latin">Pastries</span><i aria-hidden="true">✦</i><span class="latin">Arabic Sweets</span><i aria-hidden="true">✦</i><span>الشوكولا</span><i aria-hidden="true">✦</i><span>المعجنات</span><i aria-hidden="true">✦</i><span>الحلو العربي</span><i aria-hidden="true">✦</i><span>ضيافة</span><i aria-hidden="true">✦</i><span>HONEY</span><i aria-hidden="true">✦</i><span class="latin">Chocolate</span><i aria-hidden="true">✦</i><span class="latin">Pastries</span><i aria-hidden="true">✦</i><span class="latin">Arabic Sweets</span><i aria-hidden="true">✦</i><span>الشوكولا</span><i aria-hidden="true">✦</i><span>المعجنات</span><i aria-hidden="true">✦</i><span>الحلو العربي</span><i aria-hidden="true">✦</i><span>ضيافة</span><i aria-hidden="true">✦</i><span>HONEY</span><i aria-hidden="true">✦</i><span class="latin">Chocolate</span><i aria-hidden="true">✦</i><span class="latin">Pastries</span><i aria-hidden="true">✦</i><span class="latin">Arabic Sweets</span><i aria-hidden="true">✦</i></div></div>
+<section class="section collections" id="collections"><div class="wrap">
+  <header class="chapter-head"><span class="overline"><span class="latin">01</span> الأقسام</span>
+    <h2 class="h-section" data-reveal="mask">مجموعات HONEY</h2>
+    <p class="chapter-lead" data-reveal>4 مجموعات تُعرض كل منها بصورها الحقيقية: الشوكولا، المعجنات، الحلو العربي، ضيافة.</p></header>
   <div class="cats"><a class="cat" href="products.html?cat=chocolate" data-reveal>
-      <picture><source type="image/avif" srcset="assets/img/products/thumb/CHOC-029.avif 640w, assets/img/products/web/CHOC-029.avif 1600w" sizes="(max-width: 900px) 100vw, 33vw"><source type="image/webp" srcset="assets/img/products/thumb/CHOC-029.webp 640w, assets/img/products/web/CHOC-029.webp 1600w" sizes="(max-width: 900px) 100vw, 33vw"><img src="assets/img/products/web/CHOC-029.jpg" alt="شوكولا ملوكية فستق حلوة (زبدة كاكاو)" width="1600" height="1200" loading="lazy" decoding="async"></picture>
-      <div class="body"><span class="idx">01 · Chocolate</span><h3>الشوكولا</h3><p>ألواح وقطع شوكولا مرّة وحلوة، سادة ومحشوّة.</p>
-      <span class="go">31 صنفاً — تصفّح القسم</span></div></a><a class="cat" href="products.html?cat=pastries" data-reveal>
-      <picture><source type="image/avif" srcset="assets/img/products/thumb/PAST-004.avif 640w, assets/img/products/web/PAST-004.avif 1600w" sizes="(max-width: 900px) 100vw, 33vw"><source type="image/webp" srcset="assets/img/products/thumb/PAST-004.webp 640w, assets/img/products/web/PAST-004.webp 1600w" sizes="(max-width: 900px) 100vw, 33vw"><img src="assets/img/products/web/PAST-004.jpg" alt="سنيورة" width="1600" height="1200" loading="lazy" decoding="async"></picture>
-      <div class="body"><span class="idx">02 · Pastries</span><h3>المعجنات</h3><p>معمول وبرازق وبيتيفور وكعك، حلو ومالح.</p>
-      <span class="go">9 صنفاً — تصفّح القسم</span></div></a><a class="cat" href="products.html?cat=arabic-sweets" data-reveal>
-      <picture><source type="image/avif" srcset="assets/img/products/thumb/ARAB-012.avif 640w, assets/img/products/web/ARAB-012.avif 1600w" sizes="(max-width: 900px) 100vw, 33vw"><source type="image/webp" srcset="assets/img/products/thumb/ARAB-012.webp 640w, assets/img/products/web/ARAB-012.webp 1600w" sizes="(max-width: 900px) 100vw, 33vw"><img src="assets/img/products/web/ARAB-012.jpg" alt="ميديا" width="1600" height="1200" loading="lazy" decoding="async"></picture>
-      <div class="body"><span class="idx">03 · Arabic Sweets</span><h3>الحلو العربي</h3><p>أصناف الحلو العربي بالفستق والكاجو، وعلب مشكّلة.</p>
-      <span class="go">17 صنفاً — تصفّح القسم</span></div></a><a class="cat" href="products.html?cat=section-4" data-reveal>
-      <picture><source type="image/avif" srcset="assets/img/products/thumb/SEC-008.avif 640w, assets/img/products/web/SEC-008.avif 1600w" sizes="(max-width: 900px) 100vw, 33vw"><source type="image/webp" srcset="assets/img/products/thumb/SEC-008.webp 640w, assets/img/products/web/SEC-008.webp 1600w" sizes="(max-width: 900px) 100vw, 33vw"><img src="assets/img/products/web/SEC-008.jpg" alt="مَنّ وسلوى" width="1600" height="1200" loading="lazy" decoding="async"></picture>
-      <div class="body"><span class="idx">04 · </span><h3>ضيافة</h3><p>جميع انوع الراحة</p>
-      <span class="go">18 صنفاً — تصفّح القسم</span></div></a></div>
+      <div class="cat-media"><picture><source type="image/avif" srcset="assets/img/products/thumb/CHOC-029.avif 640w, assets/img/products/web/CHOC-029.avif 1600w" sizes="(max-width: 900px) 100vw, 58vw"><source type="image/webp" srcset="assets/img/products/thumb/CHOC-029.webp 640w, assets/img/products/web/CHOC-029.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw"><img src="assets/img/products/web/CHOC-029.jpg" alt="شوكولا ملوكية فستق حلوة (زبدة كاكاو)" width="1600" height="1200" loading="lazy" decoding="async"></picture></div>
+      <div class="body"><span class="idx"><span class="latin">01</span> · <span class="latin">Chocolate</span></span>
+      <h3>الشوكولا</h3><p>ألواح وقطع شوكولا مرّة وحلوة، سادة ومحشوّة.</p>
+      <span class="go"><b>31</b> صنفاً <span class="go-line" aria-hidden="true"></span> تصفّح القسم <svg class="icon go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg></span></div></a><a class="cat" href="products.html?cat=pastries" data-reveal>
+      <div class="cat-media"><picture><source type="image/avif" srcset="assets/img/products/thumb/PAST-004.avif 640w, assets/img/products/web/PAST-004.avif 1600w" sizes="(max-width: 900px) 100vw, 58vw"><source type="image/webp" srcset="assets/img/products/thumb/PAST-004.webp 640w, assets/img/products/web/PAST-004.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw"><img src="assets/img/products/web/PAST-004.jpg" alt="سنيورة" width="1600" height="1200" loading="lazy" decoding="async"></picture></div>
+      <div class="body"><span class="idx"><span class="latin">02</span> · <span class="latin">Pastries</span></span>
+      <h3>المعجنات</h3><p>معمول وبرازق وبيتيفور وكعك، حلو ومالح.</p>
+      <span class="go"><b>9</b> صنفاً <span class="go-line" aria-hidden="true"></span> تصفّح القسم <svg class="icon go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg></span></div></a><a class="cat" href="products.html?cat=arabic-sweets" data-reveal>
+      <div class="cat-media"><picture><source type="image/avif" srcset="assets/img/products/thumb/ARAB-012.avif 640w, assets/img/products/web/ARAB-012.avif 1600w" sizes="(max-width: 900px) 100vw, 58vw"><source type="image/webp" srcset="assets/img/products/thumb/ARAB-012.webp 640w, assets/img/products/web/ARAB-012.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw"><img src="assets/img/products/web/ARAB-012.jpg" alt="ميديا" width="1600" height="1200" loading="lazy" decoding="async"></picture></div>
+      <div class="body"><span class="idx"><span class="latin">03</span> · <span class="latin">Arabic Sweets</span></span>
+      <h3>الحلو العربي</h3><p>أصناف الحلو العربي بالفستق والكاجو، وعلب مشكّلة.</p>
+      <span class="go"><b>17</b> صنفاً <span class="go-line" aria-hidden="true"></span> تصفّح القسم <svg class="icon go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg></span></div></a><a class="cat" href="products.html?cat=section-4" data-reveal>
+      <div class="cat-media"><picture><source type="image/avif" srcset="assets/img/products/thumb/SEC-008.avif 640w, assets/img/products/web/SEC-008.avif 1600w" sizes="(max-width: 900px) 100vw, 58vw"><source type="image/webp" srcset="assets/img/products/thumb/SEC-008.webp 640w, assets/img/products/web/SEC-008.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw"><img src="assets/img/products/web/SEC-008.jpg" alt="مَنّ وسلوى" width="1600" height="1200" loading="lazy" decoding="async"></picture></div>
+      <div class="body"><span class="idx"><span class="latin">04</span></span>
+      <h3>ضيافة</h3><p>جميع انوع الراحة</p>
+      <span class="go"><b>18</b> صنفاً <span class="go-line" aria-hidden="true"></span> تصفّح القسم <svg class="icon go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6"/></svg></span></div></a></div>
 </div></section>
-<section class="section tight"><div class="wrap">
-  <div class="section-head"><div><span class="overline">من كل قسم</span><h2 class="h-section" data-reveal="mask">مختارات HONEY</h2></div><a class="link-more" href="products.html">عرض الكل</a></div>
-  <div class="grid" id="featured"></div>
+<section class="manifesto" aria-label="أرقام سريعة"><div class="wrap">
+  <p class="statement" data-reveal>كل صنف يُعرض بصورته الحقيقية، <em>ورقم مرجعي ثابت</em> يجعل الطلب واضحاً من أول مرة.</p>
+  <ul class="facts">
+    <li data-reveal><b data-count="75">75</b><span>صنفاً معروضاً</span></li>
+    <li data-reveal><b data-count="4">4</b><span>أقسام: الشوكولا، المعجنات، الحلو العربي، ضيافة</span></li>
+    <li data-reveal><b data-count="5">5</b><span>كتالوجات PDF للمشاركة</span></li>
+  </ul>
 </div></section>
-<section class="section tight"><div class="wrap"><div class="band" data-reveal>
-      <img class="logo" src="assets/img/brand/honey-logo-reversed.svg" alt="" width="150" height="85" loading="lazy">
-      <div><h2>كتالوج HONEY الإلكتروني</h2><p>كل الأقسام في ملف PDF واحد (46 صفحة)، مصمّم للتصفح على الهاتف وجاهز للإرسال عبر واتساب وفيسبوك.</p></div>
-      <div class="actions"><a class="btn btn-gold" href="catalogs/Honey-Catalog.pdf?v=498e38fd93" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg> عرض</a><a class="btn btn-ghost" href="catalogs/Honey-Catalog.pdf?v=498e38fd93" download="Honey-Catalog.pdf"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> تنزيل PDF</a><button class="btn btn-ghost" type="button" data-share-catalog="honey-catalog"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="17.5" cy="5.5" r="2.5"/><circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/><path d="M8.7 10.8l6.6-4M8.7 13.2l6.6 4"/></svg> مشاركة</button></div></div></div></section>
-<section class="section tight"><div class="wrap">
-  <div class="section-head"><div><span class="overline">زورونا</span><h2 class="h-section" data-reveal="mask">المحل والمعمل</h2></div><a class="link-more" href="contact.html">كل بيانات التواصل</a></div>
-  <div class="visit"><article class="place"><span class="tag">المحل</span><h3>حلويات HONEY</h3><p>إدلب، شمال دوار الدفاع المدني، مقابل أكاديمية أبيكس الرياضية</p></article><article class="place"><span class="tag">المعمل</span><h3>معمل HONEY</h3><p>كفر جالس، الحارة الشرقية</p></article><article class="place dark"><span class="tag">الهاتف</span><h3>للطلبات والاستفسار</h3>
+<section class="section lookbook"><div class="wrap">
+  <header class="chapter-head row"><div><span class="overline"><span class="latin">02</span> من كل قسم</span><h2 class="h-section" data-reveal="mask">مختارات HONEY</h2></div>
+    <div class="strip-ctrl"><button class="icon-btn" type="button" data-strip="prev" aria-label="الأصناف السابقة"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      <button class="icon-btn" type="button" data-strip="next" aria-label="الأصناف التالية"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <a class="link-more" href="products.html">كل المنتجات</a></div></header>
+</div>
+  <div class="strip" id="featured" data-reveal tabindex="0" aria-label="مختارات من كل قسم"></div>
+  <div class="wrap"><span class="strip-progress" aria-hidden="true"><span></span></span></div>
+</section>
+<section class="band-wrap" data-tone="dark"><div class="wrap"><div class="band" data-reveal>
+      <div class="cv"><span class="book"><img src="catalogs/honey-catalog-cover.jpg?v=498e38fd93" alt="غلاف كتالوج منتجات HONEY" width="440" height="830" loading="lazy"></span></div>
+      <div class="band-copy"><span class="overline">الكتالوج الإلكتروني</span><h2 class="h-section">كل مجموعات HONEY في ملف واحد</h2>
+      <p>46 صفحة بتصميم يناسب شاشة الهاتف، مع رقم مرجعي لكل صنف، جاهز للإرسال عبر واتساب وفيسبوك.</p>
+      <div class="actions"><a class="btn btn-gold" href="catalogs/Honey-Catalog.pdf?v=498e38fd93" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg> عرض</a><a class="btn btn-ghost" href="catalogs/Honey-Catalog.pdf?v=498e38fd93" download="Honey-Catalog.pdf"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> تنزيل PDF</a><button class="btn btn-ghost" type="button" data-share-catalog="honey-catalog"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="17.5" cy="5.5" r="2.5"/><circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/><path d="M8.7 10.8l6.6-4M8.7 13.2l6.6 4"/></svg> مشاركة</button></div></div></div></div></section>
+<section class="section visit-sec"><div class="wrap">
+  <header class="chapter-head row"><div><span class="overline"><span class="latin">03</span> زورونا</span><h2 class="h-section" data-reveal="mask">المحل والمعمل</h2></div><a class="link-more" href="contact.html">كل بيانات التواصل</a></header>
+  <div class="visit"><article class="place" data-reveal><span class="tag"><span class="latin">01</span> المحل</span><h3>حلويات HONEY</h3><p><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span>إدلب، شمال دوار الدفاع المدني، مقابل أكاديمية أبيكس الرياضية</span></p></article><article class="place" data-reveal><span class="tag"><span class="latin">02</span> المعمل</span><h3>معمل HONEY</h3><p><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span>كفر جالس، الحارة الشرقية</span></p></article><article class="place dark" data-tone="dark" data-reveal><span class="tag">الهاتف</span><h3>للطلبات والاستفسار</h3>
       <a class="phone-big" href="tel:+963941536702">0941536702</a>
       <div class="actions"><a class="btn btn-gold btn-sm" href="tel:+963941536702"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 3.5h2.6l1.5 4-2 1.3a11 11 0 006.5 6.5l1.3-2 4 1.5v2.6a2 2 0 01-2.2 2A16.5 16.5 0 014.6 5.7a2 2 0 012-2.2z"/></svg> اتصل الآن</a>
-      <button class="btn btn-ghost btn-sm" type="button" data-copy="0941536702" style="color:var(--pearl);border-color:rgba(217,194,154,.5)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 00-1.5-1.5H6A1.5 1.5 0 004.5 6v8A1.5 1.5 0 006 15.5h2.5"/></svg> نسخ الرقم</button></div></article></div>
+      <button class="btn btn-ghost btn-sm" type="button" data-copy="0941536702"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 00-1.5-1.5H6A1.5 1.5 0 004.5 6v8A1.5 1.5 0 006 15.5h2.5"/></svg> نسخ الرقم</button></div></article></div>
 </div></section>
 </main>
-<footer class="site-footer">
+<footer class="site-footer" data-tone="dark">
+  <div class="wrap ft-hero">
+    <p class="ft-line">شوكولا ومعجنات وحلو عربي بلمسة من الدفء والضيافة.</p>
+    <img class="logo" src="assets/img/brand/honey-logo-reversed.svg" alt="HONEY" width="150" height="85" loading="lazy">
+  </div>
   <div class="wrap top">
-    <div><img class="logo" src="assets/img/brand/honey-logo-reversed.svg" alt="HONEY" width="150" height="85" loading="lazy">
-      <p style="margin:.9rem 0 0;max-width:22rem">شوكولا ومعجنات وحلو عربي بلمسة من الدفء والضيافة.</p></div>
-    <div><h4>الأقسام</h4><ul><li><a href="products.html?cat=chocolate">الشوكولا</a></li><li><a href="products.html?cat=pastries">المعجنات</a></li><li><a href="products.html?cat=arabic-sweets">الحلو العربي</a></li><li><a href="products.html?cat=section-4">ضيافة</a></li><li><a href="catalogs.html">الكتالوجات</a></li></ul></div>
-    <div><h4>تواصل معنا</h4><ul class="ft-contact"><li><b>الهاتف</b><a href="tel:+963941536702" class="ltr">0941536702</a></li><li><b>المحل</b><span>إدلب، شمال دوار الدفاع المدني، مقابل أكاديمية أبيكس الرياضية</span></li><li><b>المعمل</b><span>كفر جالس، الحارة الشرقية</span></li></ul></div>
+    <div><h2 class="ft-h">الأقسام</h2><ul><li><a href="products.html?cat=chocolate">الشوكولا</a></li><li><a href="products.html?cat=pastries">المعجنات</a></li><li><a href="products.html?cat=arabic-sweets">الحلو العربي</a></li><li><a href="products.html?cat=section-4">ضيافة</a></li></ul></div>
+    <div><h2 class="ft-h">الموقع</h2><ul><li><a href="products.html">المنتجات</a></li><li><a href="catalogs.html">الكتالوجات</a></li><li><a href="about.html">عن HONEY</a></li><li><a href="contact.html">تواصل معنا</a></li></ul></div>
+    <div class="ft-contact-col"><h2 class="ft-h">تواصل معنا</h2><ul class="ft-contact"><li><b>الهاتف</b><a href="tel:+963941536702" class="ltr">0941536702</a></li><li><b>المحل</b><span>إدلب، شمال دوار الدفاع المدني، مقابل أكاديمية أبيكس الرياضية</span></li><li><b>المعمل</b><span>كفر جالس، الحارة الشرقية</span></li></ul></div>
   </div>
   <div class="wrap bottom"><span>© <span data-year>2026</span> حلويات HONEY. جميع الحقوق محفوظة.</span><span class="latin">Chocolate · Pastries · Arabic Sweets</span></div>
 </footer>
-<nav class="actionbar" aria-label="إجراءات سريعة"><a class="btn btn-primary" href="tel:+963941536702" data-call><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 3.5h2.6l1.5 4-2 1.3a11 11 0 006.5 6.5l1.3-2 4 1.5v2.6a2 2 0 01-2.2 2A16.5 16.5 0 014.6 5.7a2 2 0 012-2.2z"/></svg> اتصل الآن</a><a class="btn btn-ghost" href="catalogs.html"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 5.5A2 2 0 016.5 3.5h12v15h-12a2 2 0 00-2 2zM4.5 20.5v-15M8.5 7.5h6"/></svg> الكتالوج</a></nav>
+<button class="to-top glass" type="button" aria-label="العودة إلى أعلى الصفحة" hidden><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m0 0l-6 6m6-6l6 6"/></svg></button>
+<nav class="actionbar glass" aria-label="إجراءات سريعة"><a class="btn btn-primary" href="tel:+963941536702" data-call><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 3.5h2.6l1.5 4-2 1.3a11 11 0 006.5 6.5l1.3-2 4 1.5v2.6a2 2 0 01-2.2 2A16.5 16.5 0 014.6 5.7a2 2 0 012-2.2z"/></svg> اتصل الآن</a><a class="btn btn-ghost" href="catalogs.html"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 5.5A2 2 0 016.5 3.5h12v15h-12a2 2 0 00-2 2zM4.5 20.5v-15M8.5 7.5h6"/></svg> الكتالوج</a></nav>
 <div class="sheet" id="share-sheet" aria-hidden="true">
   <div class="backdrop" data-sheet-close></div>
   <div class="panel" role="dialog" aria-modal="true" aria-labelledby="share-title">
@@ -128,9 +164,9 @@
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <noscript><div class="noscript">البحث وعرض المنتجات يحتاجان إلى تفعيل JavaScript في المتصفح. الكتالوجات متاحة من صفحة «الكتالوجات».</div></noscript>
-<script src="assets/data/site-data.js?v=a37a9da2"></script>
-<script src="assets/js/motion.js?v=aa7f8e3a"></script>
-<script src="assets/js/app.js?v=289e8d70"></script>
+<script src="assets/data/site-data.js?v=b215cb32"></script>
+<script src="assets/js/motion.js?v=b503efd5"></script>
+<script src="assets/js/app.js?v=7b824bc0"></script>
 <span id="scripts-ready" hidden></span>
 </body>
 </html>

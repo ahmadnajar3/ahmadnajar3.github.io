@@ -1,4 +1,4 @@
-/* HONEY website v3 — vanilla JS, no dependencies. Data: window.HONEY (assets/data/site-data.js, generated).
+/* HONEY website v4 — vanilla JS, no dependencies. Data: window.HONEY (assets/data/site-data.js, generated).
    Motion: CSS + Web Animations API, timings from assets/css/motion.css (read through window.HM from motion.js);
    all of it is skipped when the visitor prefers reduced motion. */
 (function () {
@@ -56,15 +56,18 @@
   };
 
   /* ---------- header, menu, scroll state ---------- */
-  const menuBtn = $(".menu-btn"), menu = $("#menu"), header = $(".site-header"), bar = $(".actionbar");
+  const menuBtn = $(".menu-btn"), menu = $("#menu"), index = $("#site-index"), header = $(".site-header"), bar = $(".actionbar");
   const setMenu = (open) => {
     if (!menuBtn) return; menuBtn.setAttribute("aria-expanded", String(open)); menu.classList.toggle("open", open);
-    header && header.classList.toggle("menu-open", open && window.innerWidth <= 900);
+    index && index.classList.toggle("open", open);
+    const phone = open && window.innerWidth <= 900;
+    header && header.classList.toggle("menu-open", phone);
+    document.documentElement.style.overflow = phone ? "hidden" : "";
+    menuBtn.setAttribute("aria-label", open ? "إغلاق القائمة" : "القائمة");
   };
   if (menuBtn) menuBtn.addEventListener("click", () => setMenu(menuBtn.getAttribute("aria-expanded") !== "true"));
   // tapping the dimmed page (the header's backdrop layer) or a link closes the phone menu
-  if (header) header.addEventListener("click", (e) => { if (e.target === header && menu.classList.contains("open")) setMenu(false); });
-  if (menu) menu.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+  if (index) index.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
   window.addEventListener("resize", () => { if (window.innerWidth > 900 && menu && menu.classList.contains("open")) setMenu(false); });
   let lastY = window.scrollY;
   const onScroll = () => {
@@ -74,7 +77,11 @@
     if (bar && y < lastY - 4) bar.classList.remove("hide");
     lastY = y;
   };
-  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  const toTop = $(".to-top");
+  if (toTop) toTop.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: reduced() ? "auto" : "smooth" }); setTimeout(() => { const b = $(".brand"); b && b.focus({ preventScroll: true }); }, 450); });
+  let toTopOn = false;
+  const onScrollTop = () => { const on = window.scrollY > window.innerHeight * 1.2; if (toTop && on !== toTopOn) { toTopOn = on; toTop.hidden = !on; } };
+  window.addEventListener("scroll", () => { onScroll(); onScrollTop(); }, { passive: true }); onScroll(); onScrollTop();
   $$("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 
   /* ---------- images ---------- */
@@ -116,10 +123,13 @@
     if (img.complete && img.naturalWidth) done(); else { img.addEventListener("load", done, { once: true }); img.addEventListener("error", done, { once: true }); }
   });
   const GRID_SIZES = "(max-width: 640px) 50vw, (max-width: 1200px) 33vw, 300px";
-  const card = (p) => `<a class="card" href="product.html?id=${encodeURIComponent(p.id)}" data-id="${esc(p.id)}">
-      <div class="ph">${picture(p, GRID_SIZES)}</div>
-      <div class="body"><div><h3>${esc(p.name)}</h3><div class="meta">${esc(catName(p.category))}</div><span class="more" aria-hidden="true">التفاصيل ${IC.go}</span></div>
+  const WIDE_SIZES = "(max-width: 699px) 100vw, (max-width: 1099px) 33vw, 640px";
+  const card = (p, wide = false) => `<a class="card${wide ? " wide" : ""}" href="product.html?id=${encodeURIComponent(p.id)}" data-id="${esc(p.id)}">
+      <div class="ph">${picture(p, wide ? WIDE_SIZES : GRID_SIZES, false, wide)}</div>
+      <div class="body"><h3>${esc(p.name)}</h3><div class="meta">${esc(catName(p.category))}</div>
       <span class="ref" aria-label="الرقم المرجعي">${esc(p.id)}</span></div></a>`;
+  // editorial rhythm: a large card opens each run of 13 (fills exactly 4 rows of a 4-column grid)
+  const cards = (list) => list.map((p, i) => card(p, i % 13 === 0 && list.length > 4)).join("");
 
   /* ---------- reveal: only things that start below the fold are hidden, so nothing is ever stuck invisible ---------- */
   const io = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
@@ -259,7 +269,36 @@
     home() {
       const g = $("#featured"); if (!g) return;
       const picks = D.categories.flatMap((c) => D.products.filter((p) => p.category === c.id && p.id !== c.cover).sort((a, b) => (b.featured - a.featured) || byOrder(a, b)).slice(0, 2));
-      g.innerHTML = picks.map(card).join(""); watchImages(g);
+      g.innerHTML = picks.map((p) => card(p)).join(""); watchImages(g);
+      // lookbook strip: arrows, progress line, mouse drag (RTL: scrollLeft runs from 0 to negative)
+      const bar = $(".strip-progress span");
+      const prog = () => {
+        const max = g.scrollWidth - g.clientWidth; if (max <= 0) { bar && bar.style.setProperty("--sp", 1); return; }
+        const k = Math.abs(g.scrollLeft) / max, vis = g.clientWidth / g.scrollWidth;
+        bar && bar.style.setProperty("--sp", (vis + (1 - vis) * k).toFixed(3));
+      };
+      g.addEventListener("scroll", prog, { passive: true }); window.addEventListener("resize", prog); prog();
+      const step = () => { const c = $(".card", g); return c ? c.getBoundingClientRect().width + 24 : 320; };
+      const rtl = getComputedStyle(g).direction === "rtl";
+      $$("[data-strip]").forEach((b) => b.addEventListener("click", () => {
+        const dir = b.dataset.strip === "next" ? 1 : -1;
+        g.scrollBy({ left: (rtl ? -1 : 1) * dir * step() * (window.innerWidth > 900 ? 2 : 1), behavior: reduced() ? "auto" : "smooth" });
+      }));
+      g.addEventListener("keydown", (e) => {
+        if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+        e.preventDefault(); g.scrollBy({ left: (e.key === "ArrowLeft" ? -1 : 1) * step(), behavior: reduced() ? "auto" : "smooth" });
+      });
+      let drag = null;
+      g.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse" || e.button !== 0) return; drag = { x: e.clientX, s: g.scrollLeft, moved: false }; });
+      window.addEventListener("pointermove", (e) => {
+        if (!drag) return; const dx = e.clientX - drag.x;
+        if (!drag.moved && Math.abs(dx) > 6) { drag.moved = true; g.classList.add("dragging"); }
+        if (drag.moved) g.scrollLeft = drag.s - dx;
+      });
+      window.addEventListener("pointerup", () => {
+        if (!drag) return; const moved = drag.moved; drag = null;
+        if (moved) { setTimeout(() => g.classList.remove("dragging"), 30); }
+      });
     },
 
     products() {
@@ -274,8 +313,8 @@
       const draw = (list) => {
         const grouped = state.cat === "all" && state.sort === "default" && !state.q;
         grid.innerHTML = grouped
-          ? D.categories.map((c) => { const items = list.filter((p) => p.category === c.id); return items.length ? `<div class="group-head"><h2>${esc(c.name_ar)}<small>${items.length} صنفاً</small></h2><a class="link-more" href="products.html?cat=${esc(c.id)}">عرض القسم</a></div>` + items.map(card).join("") : ""; }).join("")
-          : list.map(card).join("");
+          ? D.categories.map((c) => { const items = list.filter((p) => p.category === c.id); return items.length ? `<div class="group-head"><h2>${esc(c.name_ar)}<small>${items.length} صنفاً</small></h2><a class="link-more" href="products.html?cat=${esc(c.id)}">عرض القسم</a></div>` + cards(items) : ""; }).join("")
+          : cards(list);
         grid.hidden = !list.length; empty.hidden = !!list.length; watchImages(grid);
       };
       const render = (animate) => {
@@ -291,6 +330,7 @@
         $("#list-lead").textContent = state.cat === "all" ? "ابحث باسم الصنف أو برقمه المرجعي، واختر القسم الذي تريده." : c.description;
         document.title = (state.cat === "all" ? "المنتجات" : c.name_ar) + " — حلويات HONEY";
         count.textContent = list.length ? `${list.length} من ${state.cat === "all" ? D.products.length : c.count} صنفاً` : "";
+        const ln = $("#list-n"); if (ln) ln.textContent = String(list.length);
         const k = state.cat !== "all" && c.catalog ? catalogById(c.catalog) : null;
         acts.innerHTML = state.cat === "all" ? "" :
           `${k ? `<a class="link-more" href="${esc(catHref(k))}" target="_blank" rel="noopener">${IC.book} كتالوج القسم</a>&nbsp;&nbsp;` : ""}<button class="link-more" type="button" data-share-section style="border:0;background-color:transparent;cursor:pointer">${IC.share} مشاركة القسم</button>`;
@@ -355,17 +395,20 @@
       const k = c.catalog ? catalogById(c.catalog) : null;
       const tel = S.contact && S.contact.phone_tel;
       const backHref = back || `products.html?cat=${encodeURIComponent(p.category)}`;
+      const pos = `<span class="pos"><b>${String(i + 1).padStart(2, "0")}</b>من ${same.length} في ${esc(c.name_ar)}</span>`;
+      const pagerLink = (x, cls, label) => x ? `<a class="${cls}" href="product.html?id=${esc(x.id)}" rel="${cls}"><img src="${x.img.thumb.jpg}" alt="" width="64" height="48" loading="lazy"><span><small>${label}</small><b>${esc(x.name)}</b></span></a>` : "<span></span>";
       root.innerHTML = `
         <nav class="crumbs" aria-label="مسار التنقل"><a href="index.html">الرئيسية</a><span class="sep" aria-hidden="true">/</span>
           <a href="products.html?cat=${esc(p.category)}">${esc(c.name_ar)}</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">${esc(p.name)}</span></nav>
         <div class="detail">
           <div class="media">
-          <button class="zoom" type="button" aria-label="عرض صورة ${esc(p.name)} بحجم أكبر">${picture(p, "(max-width: 900px) 100vw, 58vw", true, true)}<span class="hint">${IC.zoom} تكبير</span></button>
+          <button class="zoom" type="button" aria-label="عرض صورة ${esc(p.name)} بحجم أكبر">${picture(p, "(max-width: 900px) 100vw, 58vw", true, true)}<span class="hint glass-dark">${IC.zoom} تكبير</span></button>
           ${shots.length > 1 ? `<div class="thumbs" role="group" aria-label="صور المنتج">${shots.map((g, n) => `<button type="button" data-shot="${n}" aria-label="الصورة ${n + 1}" aria-pressed="${n === 0}"><img src="${g.thumb.jpg}" alt="" width="160" height="120" loading="lazy"></button>`).join("")}</div>` : ""}
           </div>
           <div class="info">
             <span class="overline">${esc(c.name_ar)}</span>
             <h1>${esc(p.name)}</h1>
+            ${pos}
             <div class="refbox">الرقم المرجعي <b>${esc(p.id)}</b></div>
             ${F.description_ar ? `<div class="desc lead">${para(F.description_ar)}</div>` : ""}
             ${F.details_ar ? `<div class="desc">${para(F.details_ar)}</div>` : ""}
@@ -376,24 +419,20 @@
               ${k ? `<a class="btn btn-ghost" href="${esc(catHref(k))}" target="_blank" rel="noopener">${IC.book} كتالوج القسم</a>` : ""}
             </div>
             <a class="back-link" href="${esc(backHref)}">${IC.back} ${back ? "العودة إلى النتائج" : "كل أصناف " + esc(c.name_ar)}</a>
-            <div class="pager">
-              ${prev ? `<a class="prev" href="product.html?id=${esc(prev.id)}"><small>السابق</small>${esc(prev.name)}</a>` : "<span></span>"}
-              ${next ? `<a class="next" href="product.html?id=${esc(next.id)}"><small>التالي</small>${esc(next.name)}</a>` : "<span></span>"}
-            </div>
+            <nav class="pager" aria-label="التنقل بين أصناف القسم">${pagerLink(prev, "prev", "السابق")}${pagerLink(next, "next", "التالي")}</nav>
           </div>
         </div>`;
       $$(".detail .info > *", root).forEach((el, n) => el.style.setProperty("--i", n));
       $("[data-share-product]", root).addEventListener("click", () =>
         share({ title: `مشاركة ${p.name}`, text: `${p.name} (${p.id}) من حلويات HONEY:`, url: absUrl("product.html?id=" + encodeURIComponent(p.id)) }));
       const rel = same.slice(i + 1).concat(same.slice(0, i)).slice(0, 4);
-      $("#related").innerHTML = rel.map(card).join(""); watchImages($("#related"));
+      $("#related").innerHTML = rel.map((x) => card(x)).join(""); watchImages($("#related")); reveal($("#related"));
       $("#related-more").href = "products.html?cat=" + encodeURIComponent(p.category);
       $("#related-more").textContent = "كل أصناف " + c.name_ar;
-      const lb = $("#lightbox"), lbImg = $("img", lb), zoom = $(".zoom", root);
+      const lb = $("#lightbox"), lbImg = $("img", lb), zoom = $(".zoom", root), lbStage = $(".lb-stage", lb) || lb;
       const lbClose = $(".lb-close", lb) || $("button", lb), lbPrev = $(".lb-prev", lb), lbNext = $(".lb-next", lb);
       let cur = 0;
       const hint = `<span class="hint glass-dark">${IC.zoom} تكبير</span>`;
-      const zh = $(".hint", zoom); if (zh) zh.classList.add("glass-dark");
       // gallery: the new photo fades in over the old one instead of jumping
       const show = (n) => {
         cur = (n + shots.length) % shots.length; const g = shots[cur];
@@ -409,8 +448,24 @@
         zoom.style.setProperty("--ox", ((e.clientX - r.left) / r.width * 100).toFixed(1) + "%");
         zoom.style.setProperty("--oy", ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%");
       }, { passive: true });
-      // full view: the photo grows out of its place on the page; arrows/swipe move through the gallery
+      /* full view: the photo grows out of its place; a tap/click zooms in (2.2×) and a drag explores the detail;
+         arrows/swipe move through the gallery when it is not zoomed */
+      const Z = { s: 1, x: 0, y: 0 };
+      const applyZ = () => { lbImg.style.setProperty("--ls", Z.s); lbImg.style.setProperty("--lx", Z.x + "px"); lbImg.style.setProperty("--ly", Z.y + "px"); lb.classList.toggle("zoomed", Z.s > 1); };
+      const clampZ = () => {
+        const r = lbImg.getBoundingClientRect(), w = r.width / Z.s, h = r.height / Z.s;
+        const mx = Math.max(0, (w * Z.s - w) / 2), my = Math.max(0, (h * Z.s - h) / 2);
+        Z.x = Math.max(-mx, Math.min(mx, Z.x)); Z.y = Math.max(-my, Math.min(my, Z.y));
+      };
+      const resetZ = () => { Z.s = 1; Z.x = 0; Z.y = 0; applyZ(); };
+      const zoomAt = (cx, cy) => {
+        if (Z.s > 1) { resetZ(); return; }
+        const r = lbImg.getBoundingClientRect(); Z.s = 2.2;
+        Z.x = (r.left + r.width / 2 - cx) * (Z.s - 1); Z.y = (r.top + r.height / 2 - cy) * (Z.s - 1);
+        clampZ(); applyZ();
+      };
       const lbSet = (animate) => {
+        resetZ();
         lbImg.src = shots[cur].web.jpg; lbImg.alt = p.name; $("figcaption", lb).textContent = `${p.name} · ${p.id}` + (shots.length > 1 ? ` · ${cur + 1}/${shots.length}` : "");
         if (animate && !reduced()) { lbImg.classList.remove("swap"); void lbImg.offsetWidth; lbImg.classList.add("swap"); }
       };
@@ -422,32 +477,53 @@
         if (!reduced() && from && lbImg.animate) {
           const go = () => {
             const a = from.getBoundingClientRect(), b = lbImg.getBoundingClientRect(); if (!b.width) return;
-            lbImg.animate([{ transform: `translate(${a.left + a.width / 2 - (b.left + b.width / 2)}px, ${a.top + a.height / 2 - (b.top + b.height / 2)}px) scale(${a.width / b.width})`, opacity: .6, borderRadius: "22px" },
-                           { transform: "none", opacity: 1, borderRadius: "14px" }], { duration: T("--d-gentle", 480), easing: HM.ease("--ease-honey") });
+            lbImg.animate([{ transform: `translate(${a.left + a.width / 2 - (b.left + b.width / 2)}px, ${a.top + a.height / 2 - (b.top + b.height / 2)}px) scale(${a.width / b.width})`, opacity: .6 },
+                           { transform: "none", opacity: 1 }], { duration: T("--d-gentle", 480), easing: HM.ease("--ease-honey") });
           };
           lbImg.complete && lbImg.naturalWidth ? go() : lbImg.addEventListener("load", go, { once: true });
         }
       };
       const close = () => {
         if (!lb.classList.contains("open")) return;
-        const finish = () => { lb.classList.remove("open", "closing"); document.documentElement.style.overflow = ""; zoom.focus(); };
+        const finish = () => { lb.classList.remove("open", "closing"); resetZ(); document.documentElement.style.overflow = ""; zoom.focus(); };
         if (reduced()) return finish();
         lb.classList.add("closing"); setTimeout(finish, T("--d-base", 280));
       };
       zoom.addEventListener("click", open);
+      // pan: pointer drag while zoomed (mouse, pen and touch)
+      let pan = null, moved = false;
+      lbImg.addEventListener("pointerdown", (e) => {
+        moved = false; if (Z.s <= 1) return;
+        pan = { x: e.clientX, y: e.clientY, ox: Z.x, oy: Z.y }; lbImg.setPointerCapture && lbImg.setPointerCapture(e.pointerId); lb.classList.add("panning");
+      });
+      lbImg.addEventListener("pointermove", (e) => {
+        if (!pan) return; const dx = e.clientX - pan.x, dy = e.clientY - pan.y;
+        if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
+        Z.x = pan.ox + dx; Z.y = pan.oy + dy; clampZ(); applyZ();
+      });
+      const endPan = () => { if (pan) { pan = null; lb.classList.remove("panning"); } };
+      lbImg.addEventListener("pointerup", endPan); lbImg.addEventListener("pointercancel", endPan);
+      lbImg.addEventListener("click", (e) => { e.stopPropagation(); if (moved) { moved = false; return; } zoomAt(e.clientX, e.clientY); });
       lb.addEventListener("click", (e) => {
         if (e.target.closest(".lb-prev")) { show(cur - 1); lbSet(true); return; }   // RTL: «السابق» sits on the right
         if (e.target.closest(".lb-next")) { show(cur + 1); lbSet(true); return; }
-        if (e.target === lb || e.target.closest(".lb-close")) close();
+        if (e.target === lb || e.target === lbStage || e.target.closest(".lb-close")) close();
       });
       let sx = null;
-      lb.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; }, { passive: true });
+      lb.addEventListener("touchstart", (e) => { sx = Z.s > 1 || e.touches.length > 1 ? null : e.touches[0].clientX; }, { passive: true });
       lb.addEventListener("touchend", (e) => {
         if (sx === null || shots.length < 2) return; const dx = e.changedTouches[0].clientX - sx; sx = null;
         if (Math.abs(dx) > 50) { show(cur + (dx > 0 ? 1 : -1)); lbSet(true); }
       });
       document.addEventListener("keydown", (e) => {
-        if (!lb.classList.contains("open")) return;
+        const typing = /INPUT|TEXTAREA|SELECT/.test((document.activeElement || {}).tagName || "");
+        if (!lb.classList.contains("open")) {
+          // outside the full view: ← / → walk through the section (RTL: ← = next)
+          if (typing || e.altKey || e.ctrlKey || e.metaKey || !$("#search-layer").hidden || $("#share-sheet").classList.contains("open")) return;
+          if (e.key === "ArrowLeft" && next) location.href = "product.html?id=" + encodeURIComponent(next.id);
+          if (e.key === "ArrowRight" && prev) location.href = "product.html?id=" + encodeURIComponent(prev.id);
+          return;
+        }
         if (e.key === "Escape") close();
         if (shots.length > 1 && (e.key === "ArrowLeft" || e.key === "ArrowRight")) { show(cur + (e.key === "ArrowLeft" ? 1 : -1)); lbSet(true); }
       });
