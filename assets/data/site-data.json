@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24 18:01",
+ "generated": "2026-11-25 14:06",
  "brand": {
   "name": "Honey",
   "name_caps": "HONEY",
@@ -20,6 +20,21 @@
   "contact": {
    "phone_display": "0941536702",
    "phone_tel": "+963941536702",
+   "people": [
+    {
+     "name_ar": "محمد علي نجار (أبو عبد الرحمن)",
+     "role_ar": null,
+     "phone_display": "0956607063",
+     "phone_tel": "+963956607063"
+    },
+    {
+     "name_ar": "أحمد نجار (أبو صطيف)",
+     "role_ar": "المحاسب ومنشئ الموقع",
+     "phone_display": "0949542231",
+     "phone_tel": "+963949542231"
+    }
+   ],
+   "people_note": "Extra contact numbers shown on the contact page and in the footer. The shop number stays in phone_display / phone_tel.",
    "whatsapp": null,
    "whatsapp_note": "Not added: WhatsApp on this number is not confirmed yet. Put the number in international form (e.g. 963941536702) here to show a WhatsApp button.",
    "email": null,

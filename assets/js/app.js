@@ -123,8 +123,10 @@
     if (img.complete && img.naturalWidth) done(); else { img.addEventListener("load", done, { once: true }); img.addEventListener("error", done, { once: true }); }
   });
   const GRID_SIZES = "(max-width: 640px) 50vw, (max-width: 1200px) 33vw, 300px";
+  // every product has its own fixed page (made by tools/build_pages.py) that Google can list
+  const pageOf = (id) => "product-" + encodeURIComponent(id) + ".html";
   const WIDE_SIZES = "(max-width: 699px) 100vw, (max-width: 1099px) 33vw, 640px";
-  const card = (p, wide = false) => `<a class="card${wide ? " wide" : ""}" href="product.html?id=${encodeURIComponent(p.id)}" data-id="${esc(p.id)}">
+  const card = (p, wide = false) => `<a class="card${wide ? " wide" : ""}" href="${pageOf(p.id)}" data-id="${esc(p.id)}">
       <div class="ph">${picture(p, wide ? WIDE_SIZES : GRID_SIZES, false, wide)}</div>
       <div class="body"><h3>${esc(p.name)}</h3><div class="meta">${esc(catName(p.category))}</div>
       <span class="ref" aria-label="الرقم المرجعي">${esc(p.id)}</span></div></a>`;
@@ -172,7 +174,7 @@
     const q = norm(sq.value);
     if (!q) { sres.innerHTML = ""; shint.textContent = "اكتب اسم صنف أو رقمه المرجعي. اضغط Enter لعرض كل النتائج."; return; }
     const list = D.products.filter((p) => matches(p, q));
-    sres.innerHTML = list.slice(0, 8).map((p, n) => `<li style="--i:${n}"><a href="product.html?id=${encodeURIComponent(p.id)}"><img src="${p.img.thumb.jpg}" alt="" width="64" height="48" loading="lazy">
+    sres.innerHTML = list.slice(0, 8).map((p, n) => `<li style="--i:${n}"><a href="${pageOf(p.id)}"><img src="${p.img.thumb.jpg}" alt="" width="64" height="48" loading="lazy">
       <span><b>${esc(p.name)}</b><small>${esc(catName(p.category))} · <span class="ltr">${esc(p.id)}</span></small></span></a></li>`).join("");
     shint.textContent = list.length ? (list.length > 8 ? `${list.length} نتيجة — اضغط Enter لعرضها كلها.` : `${list.length} نتيجة`) : "لا توجد نتائج مطابقة. جرّب كلمة أخرى.";
   };
@@ -370,7 +372,7 @@
     },
 
     product() {
-      const id = new URLSearchParams(location.search).get("id");
+      const id = new URLSearchParams(location.search).get("id") || document.body.dataset.product;
       const p = D.products.find((x) => x.id === id);
       const root = $("#product");
       const back = store.get("honey:list");
@@ -396,7 +398,7 @@
       const tel = S.contact && S.contact.phone_tel;
       const backHref = back || `products.html?cat=${encodeURIComponent(p.category)}`;
       const pos = `<span class="pos"><b>${String(i + 1).padStart(2, "0")}</b>من ${same.length} في ${esc(c.name_ar)}</span>`;
-      const pagerLink = (x, cls, label) => x ? `<a class="${cls}" href="product.html?id=${esc(x.id)}" rel="${cls}"><img src="${x.img.thumb.jpg}" alt="" width="64" height="48" loading="lazy"><span><small>${label}</small><b>${esc(x.name)}</b></span></a>` : "<span></span>";
+      const pagerLink = (x, cls, label) => x ? `<a class="${cls}" href="${pageOf(x.id)}" rel="${cls}"><img src="${x.img.thumb.jpg}" alt="" width="64" height="48" loading="lazy"><span><small>${label}</small><b>${esc(x.name)}</b></span></a>` : "<span></span>";
       root.innerHTML = `
         <nav class="crumbs" aria-label="مسار التنقل"><a href="index.html">الرئيسية</a><span class="sep" aria-hidden="true">/</span>
           <a href="products.html?cat=${esc(p.category)}">${esc(c.name_ar)}</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">${esc(p.name)}</span></nav>
@@ -424,7 +426,7 @@
         </div>`;
       $$(".detail .info > *", root).forEach((el, n) => el.style.setProperty("--i", n));
       $("[data-share-product]", root).addEventListener("click", () =>
-        share({ title: `مشاركة ${p.name}`, text: `${p.name} (${p.id}) من حلويات HONEY:`, url: absUrl("product.html?id=" + encodeURIComponent(p.id)) }));
+        share({ title: `مشاركة ${p.name}`, text: `${p.name} (${p.id}) من حلويات HONEY:`, url: absUrl(pageOf(p.id)) }));
       const rel = same.slice(i + 1).concat(same.slice(0, i)).slice(0, 4);
       $("#related").innerHTML = rel.map((x) => card(x)).join(""); watchImages($("#related")); reveal($("#related"));
       $("#related-more").href = "products.html?cat=" + encodeURIComponent(p.category);
@@ -520,8 +522,8 @@
         if (!lb.classList.contains("open")) {
           // outside the full view: ← / → walk through the section (RTL: ← = next)
           if (typing || e.altKey || e.ctrlKey || e.metaKey || !$("#search-layer").hidden || $("#share-sheet").classList.contains("open")) return;
-          if (e.key === "ArrowLeft" && next) location.href = "product.html?id=" + encodeURIComponent(next.id);
-          if (e.key === "ArrowRight" && prev) location.href = "product.html?id=" + encodeURIComponent(prev.id);
+          if (e.key === "ArrowLeft" && next) location.href = pageOf(next.id);
+          if (e.key === "ArrowRight" && prev) location.href = pageOf(prev.id);
           return;
         }
         if (e.key === "Escape") close();

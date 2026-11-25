@@ -393,6 +393,10 @@ html.curtain::after { inset: 50% auto auto 50%; width: 168px; height: 96px; marg
 .place .actions { margin-top: auto; padding-top: .6rem; }
 .place.dark { background: var(--night); }
 .phone-big { font-family: "Cormorant", serif; font-weight: 500; font-size: clamp(2.2rem, 1.6rem + 2.2vw, 3.2rem); direction: ltr; align-self: flex-start; text-decoration: none; color: var(--champagne-light); line-height: 1.1; }
+.people-head { margin: clamp(3rem, 2rem + 3vw, 5rem) 0 1.6rem; }
+.visit.people { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.visit.people .place { min-height: 0; }
+.phone-big.dark-ink { color: var(--ink); }
 .foot-note { margin-top: 1.6rem; color: var(--taupe); font-size: .92rem; }
 
 /* ---------- inner page heads ---------- */
@@ -670,7 +674,7 @@ html.curtain::after { inset: 50% auto auto 50%; width: 168px; height: 96px; marg
   .band, .cat-main, .ready, .about .split { grid-template-columns: 1fr; }
   .band .cv, .cat-main .cv { order: -1; }
   .book { width: min(56%, 240px); }
-  .visit { grid-template-columns: 1fr; }
+  .visit, .visit.people { grid-template-columns: 1fr; }
   .place { min-height: 0; }
   .site-footer .top { grid-template-columns: 1fr 1fr; }
   .ft-contact-col { grid-column: 1 / -1; }

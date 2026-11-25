@@ -271,13 +271,16 @@
   window.addEventListener("pageswap", (e) => {
     if (!e.viewTransition || !e.activation || !e.activation.entry) return;
     let url; try { url = new URL(e.activation.entry.url); } catch (_) { return; }
-    const toProduct = /product\.html$/.test(url.pathname);
-    const here = new URLSearchParams(location.search).get("id");
-    let el = toProduct ? cardFor(url.searchParams.get("id")) : null;
+    // product pages: product-ARAB-004.html (fixed page) or product.html?id=ARAB-004 (old links)
+    const m = url.pathname.match(/product-([A-Za-z0-9-]+)\.html$/);
+    const toId = m ? decodeURIComponent(m[1]) : (/product\.html$/.test(url.pathname) ? url.searchParams.get("id") : null);
+    const toProduct = !!toId;
+    const here = new URLSearchParams(location.search).get("id") || document.body.dataset.product;
+    let el = toProduct ? cardFor(toId) : null;
     if (!el && page === "product") { const z = $(".zoom"); if (z && inView(z)) el = z; }
     if (!el) return;
     nameIt(el);
-    store.set("honey:vt", JSON.stringify({ id: toProduct ? url.searchParams.get("id") : here, t: Date.now() }));
+    store.set("honey:vt", JSON.stringify({ id: toProduct ? toId : here, t: Date.now() }));
     e.viewTransition.finished.finally(clear);
   });
   window.addEventListener("pagereveal", (e) => {
@@ -286,7 +289,8 @@
     let s = null; try { s = JSON.parse(store.get("honey:vt") || "null"); } catch (_) {}
     store.del("honey:vt");
     if (!s || Date.now() - s.t > 5000) return;
-    const el = page === "product" ? (new URLSearchParams(location.search).get("id") === s.id ? $(".zoom") : null) : cardFor(s.id);
+    const cur = new URLSearchParams(location.search).get("id") || document.body.dataset.product;
+    const el = page === "product" ? (cur === s.id ? $(".zoom") : null) : cardFor(s.id);
     if (!el) return;
     nameIt(el);
     e.viewTransition.finished.finally(clear);
